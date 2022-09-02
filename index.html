@@ -16,18 +16,19 @@
     <title>Document</title>
   </head>
   <body>
-    <h1 class="title">GROUP 13 CONTACT MANAGER</h1>
-
+    <h1 class="title">Contact Manager App</h1>
     <div class="loginDiv">
       <div class="login_header">
-        <span class="inner-title">PLEASE LOG IN</span>
+        <span class="inner-title">Welcome Back</span>
       </div>
       <div class="login_body">
-        <p class="text1">Enter your username:</p>
         <div class="userName">
-          <input type="text" class="loginName" placeholder="Username" /><br />
+          <input 
+          type="text" 
+          class="loginName" 
+          placeholder="Username" 
+          /><br />
         </div>
-        <p class="text1">Enter your password:</p>
         <div class="passWord">
           <input
             type="password"
@@ -35,53 +36,54 @@
             placeholder="Password"
           /><br />
         </div>
-        <a href="html/forgotpass.html" class="pass_forg" target="_blank">
-          Forgot password?
-        </a>
-
         <button
           type="button"
           id="loginButton"
           class="buttons"
           onclick="doLogin();"
         >
-          Log in
+          Login
         </button>
-        <span clas="loginResult"></span>
-      </div>
-      <div>
-        <p class="text2">
-          Not registered?
-          <a class="text2" href="html/Register.html" target="_blank"
-            ><bold>Register</bold></a
-          >
-        </p>
-      </div>
+        </div>
+        <div class="links">
+          <span class="loginResult"></span>
+          <p class="text2">
+            <a class="text2" href="html/forgotpass.html">
+              Forgot Password?</a>
+          </p>
+          <p class="text2">
+            Don't have an account?
+            <a class="text2" href="html/register.html">
+              Register Now</a>
+          </p>
+        </div>
       <hr />
-      <button
+      <div class="continueWith">
+        <button
         class="google"
         data-testid="google-sign-in"
         form="googleSignIn"
         type="submit"
         value="Continue with Google"
-      >
+        >
         <span>
-          <img class="google_pic" src="pics/google.png" alt="google" /> Continue
+          <img class="google_pic" src="pics/google.png" alt="google" style ="margin-bottom: -0.3rem;"/> Continue
           with Google</span
         >
-      </button>
-      <button
-        class="google"
-        data-testid="google-sign-in"
-        form="googleSignIn"
-        type="submit"
-        value="Continue with Apple"
-      >
-        <span>
-          <img class="google_pic" src="pics/apple.png" alt="google" /> Continue
-          with Apple</span
+        </button>
+        <button
+          class="google"
+          data-testid="google-sign-in"
+          form="googleSignIn"
+          type="submit"
+          value="Continue with Apple"
         >
-      </button>
+          <span>
+            <img class="google_pic" src="pics/apple.png" alt="google" style ="margin-bottom: -0.3rem;"/> Continue
+            with Apple</span
+          >
+        </button>
+      </div>
     </div>
     <div class="light x1"></div>
     <div class="light x2"></div>

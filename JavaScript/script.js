@@ -11,11 +11,11 @@ pwShowHide.forEach(eyeIcon => {
         pwFields.forEach(loginPassword => {
             if(loginPassword.type === "password"){
                 loginPassword.type = "text";
-                eyeIcon.classList.replace("bx-hide", "bx-show");
+                eyeIcon.classList.replace("bx-show", "bx-hide");
                 return;
             }
             loginPassword.type = "password";
-            eyeIcon.classList.replace("bx-show", "bx-hide");
+            eyeIcon.classList.replace("bx-hide", "bx-show");
         })
     })
 })

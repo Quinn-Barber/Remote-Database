@@ -556,3 +556,12 @@ hr {
   border-color: #000000;
   border-radius: 10px;
 }
+
+eye-icon{
+  position: absolute;
+  font-size: 18px;
+  color: #8b8b8b;
+  margin-left: 10px;
+  cursor: pointer;
+  /*z-index: 100;*/
+}

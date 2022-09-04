@@ -523,3 +523,13 @@ input::-webkit-outer-spin-button {
   -webkit-appearance: none; 
   margin: 0; 
 }
+
+.eye-icon{
+  position: absolute;
+  font-size: 22px;
+  color: #8b8b8b;
+  margin-left: 10px;
+  margin-top: 11px;
+  cursor: pointer;
+  /*z-index: 100;*/
+}

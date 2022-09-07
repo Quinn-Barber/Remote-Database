@@ -4,6 +4,8 @@ const extension = 'php';
 const form = document.querySelector("body"),
 pwShowHide = document.querySelectorAll(".eye-icon");
     
+// register.html register button has same id as loginbutton. be sure to modify?
+
 function doLogin()
 {
     userId = 0;

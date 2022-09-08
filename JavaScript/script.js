@@ -5,6 +5,57 @@ let userId = 0;
 let firstName = "";
 let lastName = "";
 
+function doCreate()
+{    
+    let username = document.getElementById("registerUsername").value;
+    let password = document.getElementById("registerPassword").value;
+    let firstName = document.getElementById("registerFirstName").value;
+    let lastName =  document.getElementById("registerLastName").value;
+    let phoneNumber = document.getElementById("registerPhoneNumber").value;
+
+    // document.getElementById("loginResult").innerHTML = "";
+
+    let tmp = {username:username, password:password, firstName:firstName, lastName:lastName, phoneNumber:phoneNumber};
+    let jsonPayload = JSON.stringify(tmp);
+    console.log(jsonPayload);
+    let url = urlBase + '/create_account.' + extension;
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+    try
+    {
+        xhr.onreadystatechange = function() 
+        {
+            if (this.readyState == 4 && this.status == 200) 
+            {
+                let jsonObject = JSON.parse(xhr.responseText);
+                console.log(jsonObject);
+                userId = jsonObject.id;
+
+                if(userId < 1) // ???
+                {		
+                    // document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
+                    return;
+                }
+
+                // firstName = jsonObject.firstName;
+                // lastName = jsonObject.lastName;
+
+                saveCookie();
+
+                window.location.href = "forgotpass.html";
+            }
+        };
+
+        xhr.send(jsonPayload);
+
+    }catch(err)
+    {
+        console.log("error");
+    }
+}
+
 function doLogin()
 {
 	userId = 0;

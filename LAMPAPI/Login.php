@@ -8,6 +8,7 @@
 	$firstName = "";
 	$lastName = "";
 
+	//FIXME
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "contact_list_app_db"); 	
 	if($conn->connect_error)
 	{

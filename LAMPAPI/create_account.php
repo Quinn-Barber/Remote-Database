@@ -11,7 +11,7 @@
 	$lname = $inData["lastName"];
 	$pnum = $inData["phoneNumber"];
 
-    // change with appropriate database info
+    // FIXME
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
 	if ($conn->connect_error) 
 	{
@@ -21,10 +21,7 @@
 	{
 		// working?
 		$stmt = $conn->prepare("INSERT info user_list (user_id, username, password, firstname, lastname) VALUES(?,?,?,?,?)");
-		$stmt->bind_param("ss", 0, $uname, $pw, $fname, $lname);
-
-		$stmt = $conn->prepare("INSERT into user_list (UserId,Name) VALUES(?,?)");
-		$stmt->bind_param("ss", $userId, $color);
+		$stmt->bind_param("issss", 0, $uname, $pw, $fname, $lname);
 		$stmt->execute();
 		$stmt->close();
 		$conn->close();

@@ -1,6 +1,7 @@
 
 <?php
-
+	error_reporting(E_ALL);
+	ini_set('display_errors', 'on');
 	$inData = getRequestInfo();
 	
 	$id = 0;
@@ -8,7 +9,7 @@
 	$lastName = "";
 
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "contact_list_app_db"); 	
-	if( $conn->connect_error )
+	if($conn->connect_error)
 	{
 		returnWithError( $conn->connect_error );
 	}
@@ -19,7 +20,7 @@
 		$stmt->execute();
 		$result = $stmt->get_result();
 
-		if( $row = $result->fetch_assoc()  )
+		if( $row = $result->fetch_assoc())
 		{
 			returnWithInfo( $row['firstName'], $row['lastName'], $row['ID'] );
 		}

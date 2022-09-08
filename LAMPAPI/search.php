@@ -3,7 +3,7 @@
 	$inData = getRequestInfo();
 	error_reporting(E_ALL);
 	ini_set('display_errors', 'on');
-	
+
 	$searchResults = "";
 	$searchCount = 0;
 
@@ -28,7 +28,7 @@
 				$searchResults .= ",";
 			}
 			$searchCount++;
-			$searchResults .= '"' . $row["Name"] . '"';
+			$searchResults .= '"' . $row["firstname"] . '"';
 		}
 		
 		if( $searchCount == 0 )

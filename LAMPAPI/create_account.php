@@ -4,7 +4,7 @@
 	ini_set('display_errors', 'on');
 
 	$inData = getRequestInfo();
-	
+	$zero = 0;
 	$uname = $inData["username"];
 	$pw = $inData["password"];
 	$fname = $inData["firstName"];
@@ -20,7 +20,7 @@
 	else
 	{
 		$stmt = $conn->prepare("INSERT into user_list (user_id, username, password, firstname, lastname) VALUES(?,?,?,?,?)");
-		$stmt->bind_param("issss", 0, $uname, $pw, $fname, $lname);
+		$stmt->bind_param("issss", $zero, $uname, $pw, $fname, $lname);
 		$stmt->execute();
 		$stmt->close();
 		$conn->close();

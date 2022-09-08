@@ -16,7 +16,7 @@
 	}
 	else
 	{
-		$stmt = $conn->prepare("SELECT ID,firstname,lastname FROM user_list WHERE Login=? AND Password =?");
+		$stmt = $conn->prepare("SELECT user_id,firstname,lastname FROM user_list WHERE username=? AND password=?");
 		$stmt->bind_param("ss", $inData["login"], $inData["password"]);
 		$stmt->execute();
 		$result = $stmt->get_result();

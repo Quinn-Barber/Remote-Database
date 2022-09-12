@@ -8,6 +8,19 @@ let lastName = "";
 function doSearch()
 {
 	// pass cookie through GET request to ensure search can search according to logged-in user
+	let query = document.getElementById("searchField").value;
+	let tmp = {search: query, cookie: cookie};
+	let payload = JSON.stringify(tmp);
+	console.log(payload);
+	let url = urlBase + '/search.' + extension;
+
+	let xhr = new XMLHttpRequest();
+	xhr.open("GET", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8"); // pass cookie here?
+
+	try{}
+	catch(err)
+	{}
 }
 
 function doCreate()

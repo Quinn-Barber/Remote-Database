@@ -5,6 +5,11 @@ let userId = 0;
 let firstName = "";
 let lastName = "";
 
+function doSearch()
+{
+	// pass cookie through GET request to ensure search can search according to logged-in user
+}
+
 function doCreate()
 {    
     let username = document.getElementById("registerUsername").value;
@@ -44,7 +49,7 @@ function doCreate()
 
                 saveCookie();
 
-                window.location.href = "forgotpass.html";
+                window.location.href = "/html/landingpage.html";
             }
         };
 

@@ -10,11 +10,12 @@
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "contact_list_app_db");
 	if ($conn->connect_error) 
 	{
-		returnWithError( $conn->connect_error );
+		returnWithError($conn->connect_error);
 	} 
 	else
 	{
-		$stmt = $conn->prepare("select firstname from user_list where firstname like ? and user_id=?");
+		// check to see if information in contact_list also has the same firstname from the cookie
+		$stmt = $conn->prepare("select firstname from contact_list where firstname like ? and user_id=?");
 		$colorName = "%" . $inData["search"] . "%";
 		$stmt->bind_param("ss", $colorName, $inData["userId"]);
 		$stmt->execute();
@@ -27,6 +28,7 @@
 			{
 				$searchResults .= ",";
 			}
+
 			$searchCount++;
 			$searchResults .= '"' . $row["firstname"] . '"';
 		}

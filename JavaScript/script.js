@@ -7,9 +7,10 @@ let lastName = "";
 
 function doSearch()
 {
-	// pass cookie through GET request to ensure search can search according to logged-in user
-	let query = document.getElementById("searchField").value;
-	let tmp = {search: query, cookie: cookie};
+	let id = readCookie().userId; // get the userID from the cookie and pass through
+	// pass cookie through GET request to ensure search can search according to logged-in user; only userID?
+	let query = document.getElementById("searchField").value; // searchfield does not yet exist
+	let tmp = {search: query, userID: id};
 	let payload = JSON.stringify(tmp);
 	console.log(payload);
 	let url = urlBase + '/search.' + extension;

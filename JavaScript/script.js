@@ -1,4 +1,4 @@
-const urlBase = 'http://www.poostproject.xyz/LAMPAPI';
+const urlBase = 'http://67.205.182.117/LAMPAPI'; // poostproject.xyz -- does DNS work here, or should IP be used?
 const extension = 'php';
 
 let userId = 0;

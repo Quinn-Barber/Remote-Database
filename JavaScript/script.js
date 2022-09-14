@@ -63,7 +63,7 @@ function doCreate()
 
                 saveCookie();
 
-                window.location.href = "/html/landingpage.html";
+                window.location.href = "html/landingpage.html";
             }
         };
 

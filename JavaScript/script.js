@@ -1,4 +1,4 @@
-const urlBase = 'http://67.205.182.117/LAMPAPI';
+const urlBase = 'http://www.poostproject.xyz/LAMPAPI';
 const extension = 'php';
 
 let userId = 0;
@@ -118,7 +118,7 @@ function doLogin()
 
 				saveCookie();
 	
-				window.location.href = "forgotpass.html";
+				window.location.href = "html/landingpage.html";
 			}
 		};
 		xhr.send(jsonPayload);

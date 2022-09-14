@@ -1,4 +1,4 @@
-const urlBase = 'http://67.205.182.117/LAMPAPI'; // poostproject.xyz -- does DNS work here, or should IP be used?
+const urlBase = 'http://www.poostproject.xyz/LAMPAPI'; // poostproject.xyz -- does DNS work here, or should IP be used?
 const extension = 'php';
 
 let userId = 0;
@@ -63,7 +63,7 @@ function doCreate()
 
                 saveCookie();
 
-                window.location.href = "html/index.html";
+                window.location.href = "/index.html";
             }
         };
 
@@ -118,7 +118,7 @@ function doLogin()
 
 				saveCookie();
 	
-				window.location.href = "html/landingpage.html";
+				window.location.href = "/html/landingpage.html";
 			}
 		};
 		xhr.send(jsonPayload);

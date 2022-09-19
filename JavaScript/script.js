@@ -176,6 +176,8 @@ function doLogin()
 		document.getElementById("loginResult").innerHTML = err.message;
 	}
 
+	// search for all of the contacts in the user's list (GET request)
+	// returned json payload: {numberContacts, contacts{}};
 }
 
 function saveCookie()

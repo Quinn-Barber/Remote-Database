@@ -7,10 +7,10 @@ let lastName = "";
 
 function addContact()
 {
-	let firstname = document.getElementById("fname");
-	let lastname = document.getElementById("lname");
-	let pnum = document.getElementById("pnumber");
-	let email = document.getElementById("email");
+	let firstname = document.getElementById("fname").value;
+	let lastname = document.getElementById("lname").value;
+	let pnum = document.getElementById("pnumber").value;
+	let email = document.getElementById("email").value;
 
 	let tmp = {userID: userId, firstName: firstname, lastName: lastname, phoneNumber: pnum, email: email};
 	let payload = JSON.stringify(tmp);

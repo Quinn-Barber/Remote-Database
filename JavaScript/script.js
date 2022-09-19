@@ -178,6 +178,27 @@ function doLogin()
 
 	// search for all of the contacts in the user's list (GET request)
 	// returned json payload: {numberContacts, contacts{}};
+	url = urlBase + '/populate_landingpage.' + extension;
+	
+	xhr = new XMLHttpRequest();
+	xhr.open("GET", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				// insert dynamic html
+			}
+		};
+		// xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		console.log(err);
+		// document.getElementById("colorAddResult").innerHTML = err.message;
+	}
 }
 
 function saveCookie()

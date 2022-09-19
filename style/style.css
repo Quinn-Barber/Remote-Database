@@ -406,7 +406,7 @@ button:hover {
   font-size: 30px;
   font-weight: bold;
   width: 360px;
-  height: 440px;
+  height: 300px;
   border: 1px solid #192646;
   display: block;
   justify-content: center;
@@ -557,7 +557,7 @@ hr {
   border-radius: 10px;
 }
 
-eye-icon{
+.eye-icon{
   position: absolute;
   font-size: 18px;
   color: #8b8b8b;

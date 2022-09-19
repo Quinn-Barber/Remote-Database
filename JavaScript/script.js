@@ -5,6 +5,54 @@ let userId = 0;
 let firstName = "";
 let lastName = "";
 
+function addContact()
+{
+	let firstname = document.getElementById("fname");
+	let lastname = document.getElementById("lname");
+	let pnum = document.getElementById("pnumber");
+	let email = document.getElementById("email");
+
+	readCookie();
+
+	let tmp = {userID: userID, firstName: firstname, lastName: lastname, phoneNumber: pnum, email: email};
+	let payload = JSON.stringify(tmp);
+	console.log(payload);
+	let url = urlBase + '/add_contact.' + extension;
+
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8"); // pass cookie here?
+	
+	try
+    {
+        xhr.onreadystatechange = function() 
+        {
+            if (this.readyState == 4 && this.status == 200) 
+            {
+                let jsonObject = JSON.parse(xhr.responseText);
+                console.log(jsonObject);
+                userId = jsonObject.id;
+
+                if(userId < 1) // ???
+                {		
+                    // document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
+                    return;
+                }
+
+                // firstName = jsonObject.firstName;
+                // lastName = jsonObject.lastName;
+                window.location.href = "/landingpage.html";
+            }
+        };
+
+        xhr.send(jsonPayload);
+
+    }catch(err)
+    {
+        console.log("error");
+    }
+}
+
 function doSearch()
 {
 	let id = readCookie().userId; // get the userID from the cookie and pass through

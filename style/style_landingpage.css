@@ -329,18 +329,20 @@ button:focus {
   border-radius: 10px;
   margin-bottom: 10px;
 }
-.pencil {
-  width: 20px;
-  background-color: transparent;
-  border: none;
+.contact_info button{
+  width: 50px;
+  height: 50px;
 }
-.edit_box {
-  margin-right: -900px;
-  background-color: transparent;
+.contact_info button .pencil{
+  width: 24px;
+  height: 24px;
 }
-.table_contact {
-  width: 800px;
-  text-align: center;
+.contact_info button .trash{
+  width: 24px;
+  height: 24px;
+}
+.contact_info .table_contact{
+  margin: auto;
 }
 .nextPage {
   position: absolute;
@@ -357,5 +359,6 @@ button:focus {
   margin-left: 20px;
   margin-top: 10px;
   width: 100px;
+  height: 50px;
   font: Roboto, Arial;
 }

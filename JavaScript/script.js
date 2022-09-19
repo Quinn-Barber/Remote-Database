@@ -14,8 +14,8 @@ function addContact()
 	let email = document.getElementById("email").value;
 
 	let tmp = {userID: userId, firstName: firstname, lastName: lastname, phoneNumber: pnum, email: email};
-	let payload = JSON.stringify(tmp);
-	console.log(payload);
+	let jsonPayload = JSON.stringify(tmp);
+	console.log(jsonPayload);
 	let url = urlBase + '/add_contact.' + extension;
 
 	let xhr = new XMLHttpRequest();
@@ -40,7 +40,7 @@ function addContact()
 
                 // firstName = jsonObject.firstName;
                 // lastName = jsonObject.lastName;
-                window.location.href = "/landingpage.html";
+                window.location.href = "../html/landingpage.html";
             }
         };
 
@@ -48,6 +48,7 @@ function addContact()
 
     }catch(err)
     {
+		console.log(err);
         console.log("error");
     }
 }

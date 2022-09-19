@@ -12,8 +12,6 @@ function addContact()
 	let pnum = document.getElementById("pnumber");
 	let email = document.getElementById("email");
 
-	readCookie();
-
 	let tmp = {userID: userID, firstName: firstname, lastName: lastname, phoneNumber: pnum, email: email};
 	let payload = JSON.stringify(tmp);
 	console.log(payload);

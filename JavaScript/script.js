@@ -7,6 +7,7 @@ let lastName = "";
 
 function addContact()
 {
+	readCookie();
 	let firstname = document.getElementById("fname").value;
 	let lastname = document.getElementById("lname").value;
 	let pnum = document.getElementById("pnumber").value;

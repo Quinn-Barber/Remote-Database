@@ -2,9 +2,7 @@
 <html lang="en">
   <head>
     
-    <script src="JavaScript/script.js"></script>
-    <script src="JavaScript/eye.js"></script>
-    
+
     <title>13contactmanager</title>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,19 +10,23 @@
     <link href="style/style.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <script src="JavaScript/script.js"></script>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="shortcut icon" type="x-icon" href="pics/download.jpeg" />
     <title>Document</title>
-    
+
     <!--Boxicons CSS-->
-    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    
     <h1 class="title">Contact Manager App</h1>
     <div class="loginDiv">
       <div class="login_header">
@@ -32,11 +34,11 @@
       </div>
       <div class="login_body">
         <div class="userName">
-          <input 
-          type="text"
-          id="loginName" 
-          class="loginName" 
-          placeholder="Username" 
+          <input
+            type="text"
+            id="loginName"
+            class="loginName"
+            placeholder="Username"
           /><br />
         </div>
         <div class="passWord">
@@ -46,10 +48,11 @@
             class="loginPassword"
             placeholder="Password"
           />
-          
+
           <!--Hide Password Button-->
-          <i class='bx bx-hide eye-icon'></i>
-          
+          <i class="bx bx-hide eye-icon"></i>
+          <script src="JavaScript/eye.js"></script>
+
           <br />
         </div>
         <button
@@ -60,46 +63,15 @@
         >
           Login
         </button>
-        </div>
-        <div class="links">
-          <span class="loginResult"></span>
-          <p class="text2">
-            <a class="text2" href="html/forgotpass.html">
-              Forgot Password?</a>
-          </p>
-          <p class="text2">
-            Don't have an account?
-            <a class="text2" href="html/register.html">
-              Register Now</a>
-          </p>
-        </div>
-      <hr />
-      <div class="continueWith">
-        <button
-        class="google"
-        data-testid="google-sign-in"
-        form="googleSignIn"
-        type="submit"
-        value="Continue with Google"
-        >
-        <span>
-          <img class="google_pic" src="pics/google.png" alt="google" style ="margin-bottom: -0.3rem;"/> Continue
-          with Google</span
-        >
-        </button>
-        <button
-          class="google"
-          data-testid="google-sign-in"
-          form="googleSignIn"
-          type="submit"
-          value="Continue with Apple"
-        >
-          <span>
-            <img class="google_pic" src="pics/apple.png" alt="google" style ="margin-bottom: -0.3rem;"/> Continue
-            with Apple</span
-          >
-        </button>
       </div>
+      <div class="links">
+        <span class="loginResult"></span>
+        <p class="text2">
+          Don't have an account?
+          <a class="text2" href="html/register.html"> Register Now</a>
+        </p>
+      </div>
+      
     </div>
     <div class="light x1"></div>
     <div class="light x2"></div>

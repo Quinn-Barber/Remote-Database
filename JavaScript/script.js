@@ -40,7 +40,7 @@ function addContact()
 
                 // firstName = jsonObject.firstName;
                 // lastName = jsonObject.lastName;
-                // window.location.href = "../html/landingpage.html";
+                window.location.href = "../html/landingpage.html";
             }
         };
 

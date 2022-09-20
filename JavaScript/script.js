@@ -123,6 +123,11 @@ function doCreate()
     }
 }
 
+function fetchContacts()
+{
+	console.log("reached");
+}
+
 function doLogin()
 {
 	userId = 0;
@@ -155,9 +160,10 @@ function doLogin()
 				console.log(jsonObject);
 				userId = jsonObject.id;
 		
-				if( userId < 1 )
+				if(userId < 1)
 				{		
-					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
+					// document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
+					console.log("login credentials invalid");
 					return;
 				}
 		
@@ -167,13 +173,15 @@ function doLogin()
 				saveCookie();
 	
 				window.location.href = "html/landingpage.html";
+				fetchContacts();
 			}
 		};
 		xhr.send(jsonPayload);
 	}
 	catch(err)
 	{
-		document.getElementById("loginResult").innerHTML = err.message;
+		console.log(err);
+		// document.getElementById("loginResult").innerHTML = err.message;
 	}
 
 	// search for all of the contacts in the user's list (GET request)

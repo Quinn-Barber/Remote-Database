@@ -178,6 +178,7 @@ function doLogin()
 
 	// search for all of the contacts in the user's list (GET request)
 	// returned json payload: {numberContacts, contacts{}};
+	/*
 	url = urlBase + '/populate_landingpage.' + extension;
 	
 	xhr = new XMLHttpRequest();
@@ -199,6 +200,7 @@ function doLogin()
 		console.log(err);
 		// document.getElementById("colorAddResult").innerHTML = err.message;
 	}
+	*/
 }
 
 function saveCookie()

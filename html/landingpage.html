@@ -6,7 +6,7 @@ x`<!DOCTYPE html>
       href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
       rel="stylesheet"
     />
-
+    <script src="../JavaScript/script.js"></script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,7 +33,7 @@ x`<!DOCTYPE html>
       ></button>
     </div>
   </head>
-  <body>
+  <body onload="fetchContacts();">
     <form action="../index.html">
       <input class="logout" type="submit" value="Log out" />
     </form>

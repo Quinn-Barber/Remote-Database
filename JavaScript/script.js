@@ -125,7 +125,30 @@ function doCreate()
 
 function fetchContacts()
 {
-	console.log("reached");
+	console.log("getting contacts for userID: " + userId);
+
+	url = urlBase + '/populate_landingpage.' + extension;
+	
+	xhr = new XMLHttpRequest();
+	xhr.open("GET", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				// insert dynamic html
+				let jsonObject = JSON.parse(xhr.responseText);
+				console.log(jsonObject);
+			}
+		};
+		// xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		console.log(err);
+	}
 }
 
 function doLogin()
@@ -173,7 +196,6 @@ function doLogin()
 				saveCookie();
 	
 				window.location.href = "html/landingpage.html";
-				fetchContacts();
 			}
 		};
 		xhr.send(jsonPayload);
@@ -186,29 +208,7 @@ function doLogin()
 
 	// search for all of the contacts in the user's list (GET request)
 	// returned json payload: {numberContacts, contacts{}};
-	/*
-	url = urlBase + '/populate_landingpage.' + extension;
-	
-	xhr = new XMLHttpRequest();
-	xhr.open("GET", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	try
-	{
-		xhr.onreadystatechange = function() 
-		{
-			if (this.readyState == 4 && this.status == 200) 
-			{
-				// insert dynamic html
-			}
-		};
-		// xhr.send(jsonPayload);
-	}
-	catch(err)
-	{
-		console.log(err);
-		// document.getElementById("colorAddResult").innerHTML = err.message;
-	}
-	*/
+	// ^^^ accomplished by onLoad() (landingpage.html) and fetchContacts()
 }
 
 function saveCookie()

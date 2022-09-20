@@ -29,7 +29,7 @@
 			}
 
 			$searchCount++;
-			$searchResults .= '"' . $row["firstname"] .','. $row["lastname"] .','. $row["phone_number"] .','. $row["email"] . '"';
+			$searchResults .= '"' . $row["firstname"] .','. $row["lastname"] .','. $row["phone_number"] . ','. $row["email"] . '"';
 		}
 		
 		if( $searchCount == 0 )

@@ -5,14 +5,12 @@
 
 	$inData = getRequestInfo();
 	$zero = 0;
-    // $contact_id = $inData["contactId"];
     $user_id = $inData["userID"];
 	$fname = $inData["firstName"];
 	$lname = $inData["lastName"];
     $email = $inData["email"];
 	$pnum = $inData["phoneNumber"];
 
-    // FIXME
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "contact_list_app_db");
 	if ($conn->connect_error) 
 	{

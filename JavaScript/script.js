@@ -125,12 +125,15 @@ function doCreate()
 
 function fetchContacts()
 {
+	readCookie();
 	console.log("getting contacts for userID: " + userId);
 
-	url = urlBase + '/populate_landingpage.' + extension;
-	
-	xhr = new XMLHttpRequest();
-	xhr.open("GET", url, true);
+	let tmp = {userId:userId};
+	let jsonPayload = JSON.stringify( tmp );
+	let url = urlBase + '/populate_landingpage.' + extension;
+
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
 	{
@@ -138,16 +141,17 @@ function fetchContacts()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				// insert dynamic html
-				let jsonObject = JSON.parse(xhr.responseText);
+				console.log(xhr.responseText);
+				let jsonObject = JSON.parse( xhr.responseText );
 				console.log(jsonObject);
 			}
 		};
-		// xhr.send(jsonPayload);
+		xhr.send(jsonPayload);
 	}
 	catch(err)
 	{
 		console.log(err);
+		// document.getElementById("loginResult").innerHTML = err.message;
 	}
 }
 
@@ -166,9 +170,7 @@ function doLogin()
 	let tmp = {login:login,password:password};
 //	var tmp = {login:login,password:hash};
 	let jsonPayload = JSON.stringify( tmp );
-	
 	let url = urlBase + '/Login.' + extension;
-
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");

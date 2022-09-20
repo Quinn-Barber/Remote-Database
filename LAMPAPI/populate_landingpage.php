@@ -6,7 +6,7 @@
 
 	$searchResults = "";
 	$searchCount = 0;
-    $userId = 0;
+    $userId = $inData["userId"];
 
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "contact_list_app_db");
 	if ($conn->connect_error) 
@@ -17,7 +17,7 @@
 	{
 		// check to see if information in contact_list also has the same firstname from the cookie
 		$stmt = $conn->prepare("select * from contact_list where user_id=?");
-		$stmt->bind_param("i", $userId, $inData["userId"]);
+		$stmt->bind_param("i", $userId);
 		$stmt->execute();
 		$result = $stmt->get_result();
 		
@@ -29,7 +29,7 @@
 			}
 
 			$searchCount++;
-			$searchResults .= '"' . $row["firstname"] . '"';
+			$searchResults .= '"' . $row["firstname"] .','. $row["lastname"] .','. $row["phone_number"] .','. $row["email"] . '"';
 		}
 		
 		if( $searchCount == 0 )

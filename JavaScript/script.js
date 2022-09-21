@@ -54,14 +54,31 @@ function addContact()
     }
 }
 
-function editContact()
+function editContact(id)
 {
 
 }
 
-function deleteContact()
+function deleteContact(id)
 {
+	let idx = id;
+	firstName = document.getElementById("fNameVal" + idx).value;
+	lastName = document.getElementById("lNameVal" + idx).value;
+	phoneNumber = document.getElementById("phoneNumVal" + idx).value;
+	email = document.getElementById("eMailVal" + idx).value;
 
+	let tmp = {firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, email, email};
+	let payload = JSON.stringify(tmp);
+	console.log(payload);
+	let url = urlBase + "/remove_contact." + extension;
+
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8"); // pass cookie here?
+
+	try{}
+	catch(err)
+	{}
 }
 
 function doSearch()
@@ -76,7 +93,7 @@ function doSearch()
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("GET", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8"); // pass cookie here?
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
 	try{}
 	catch(err)

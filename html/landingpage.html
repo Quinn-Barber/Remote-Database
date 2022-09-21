@@ -20,7 +20,7 @@
     <div class="loginDiv">
 
       <div class="logoutButton">
-        <form action="../index.html">
+        <form action="../index.html" title="Log out">
           <input class="logout" type="submit" value="Log out" />
         </form>
       </div>
@@ -35,8 +35,26 @@
       <input
           type="text"
           class="search_bar"
+          id="searchBar"
           placeholder="Search For Contact"
       /><br />
+      <button
+        class = "searchButton"
+        id = "searchBut"
+        onclick="doSearch()"
+        title="Search Contacts"
+        >Search</button>
+      
+      <script>
+        var button = document.getElementById("searchBut");
+        var textBox = document.getElementById("searchBar");
+
+        textBox.addEventListener("keyup", function(event){
+          if(event.keyCode == 13){
+            button.click();
+          }
+        });
+      </script>
       
       <div class="allContacts">
         <div class="contact_info">
@@ -54,10 +72,10 @@
               <td id="eMailVal0"> </td>
             </tr>
           </table>
-          <button class="edit" id="edit0" hidden>
+          <button class="edit" id="edit0" hidden onclick="editContact()" title="Edit Contact">
             <img class="pencil" src="../pics/pencil.png" />
           </button>
-          <button class="delete" id="delete0" hidden>
+          <button class="delete" id="delete0" hidden onclick="deleteContact()" title="Delete Contact">
             <img class="trash" src="../pics/trash.png" />
           </button>
         </div>
@@ -77,10 +95,10 @@
               <td id="eMailVal1"> </td>
             </tr>
           </table>
-          <button class="edit" id="edit1" hidden>
+          <button class="edit" id="edit1" hidden onclick="editContact()" title="Edit Contact">
             <img class="pencil" src="../pics/pencil.png" />
           </button>
-          <button class="delete" id="delete1" hidden>
+          <button class="delete" id="delete1" hidden onclick="deleteContact()" title="Delete Contact">
             <img class="trash" src="../pics/trash.png" />
           </button>
         </div>
@@ -100,10 +118,10 @@
               <td id="eMailVal2"> </td>
             </tr>
           </table>
-          <button class="edit" id="edit2" hidden>
+          <button class="edit" id="edit2" hidden onclick="editContact()" title="Edit Contact">
             <img class="pencil" src="../pics/pencil.png" />
           </button>
-          <button class="delete" id="delete2" hidden>
+          <button class="delete" id="delete2" hidden onclick="deleteContact()" title="Delete Contact">
             <img class="trash" src="../pics/trash.png" />
           </button>
         </div>
@@ -123,10 +141,10 @@
               <td id="eMailVal3"> </td>
             </tr>
           </table>
-          <button class="edit" id="edit3" hidden>
+          <button class="edit" id="edit3" hidden onclick="editContact()" title="Edit Contact">
             <img class="pencil" src="../pics/pencil.png" />
           </button>
-          <button class="delete" id="delete3" hidden>
+          <button class="delete" id="delete3" hidden onclick="deleteContact()" title="Delete Contact">
             <img class="trash" src="../pics/trash.png" />
           </button>
         </div>
@@ -146,10 +164,10 @@
               <td id="eMailVal4"> </td>
             </tr>
           </table>
-          <button class="edit" id="edit4" hidden>
+          <button class="edit" id="edit4" hidden onclick="editContact()" title="Edit Contact">
             <img class="pencil" src="../pics/pencil.png" />
           </button>
-          <button class="delete" id="delete4" hidden>
+          <button class="delete" id="delete4" hidden onclick="deleteContact()" title="Delete Contact">
             <img class="trash" src="../pics/trash.png" />
           </button>
         </div>
@@ -169,10 +187,10 @@
               <td id="eMailVal5"> </td>
             </tr>
           </table>
-          <button class="edit" id="edit5" hidden>
+          <button class="edit" id="edit5" hidden onclick="editContact()" title="Edit Contact">
             <img class="pencil" src="../pics/pencil.png" />
           </button>
-          <button class="delete" id="delete5" hidden>
+          <button class="delete" id="delete5" hidden onclick="deleteContact()" title="Delete Contact">
             <img class="trash" src="../pics/trash.png" />
           </button>
         </div>

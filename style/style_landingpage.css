@@ -113,3 +113,11 @@ button:hover {
   width: 80%;
   font-family: Roboto, Arial;
 }
+
+p1{
+  margin-left: 70px;
+  color: white;
+  font-family: Roboto, Arial;
+  font-weight: bold;
+  font-size: 40px;
+}

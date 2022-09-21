@@ -144,6 +144,30 @@ function fetchContacts()
 				console.log(xhr.responseText);
 				let jsonObject = JSON.parse( xhr.responseText );
 				console.log(jsonObject);
+
+				for(let i = 0; i < jsonObject.results.length; i++)
+				{
+					let fName = jsonObject.results[i][0];
+					let lName = jsonObject.results[i][1];
+					let phoneNum = jsonObject.results[i][2];
+					let eMail = jsonObject.results[i][3];
+					let fStr = "fName";
+					let lStr = "lName";
+					let pStr = "phoneNum";
+					let eStr = "eMail";
+					let eButStr = "edit";
+					let dButStr = "delete";
+					document.getElementById(new String(fStr + i)).innerHTML = "First Name";
+					document.getElementById(new String(lStr + i)).innerHTML = "Last Name";
+					document.getElementById(new String(pStr + i)).innerHTML = "Phone Number";
+					document.getElementById(new String(eStr + i)).innerHTML = "E-mail";
+					document.getElementById(new String(fStr + "Val" + i)).innerHTML = fName;
+					document.getElementById(new String(lStr + "Val" + i)).innerHTML = lName;
+					document.getElementById(new String(pStr + "Val" + i)).innerHTML = phoneNum;
+					document.getElementById(new String(eStr + "Val" + i)).innerHTML = eMail;
+					document.getElementById(new String(eButStr + i)).removeAttribute("hidden");
+					document.getElementById(new String(dButStr + i)).removeAttribute("hidden");
+				}
 			}
 		};
 		xhr.send(jsonPayload);

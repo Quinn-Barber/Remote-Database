@@ -54,6 +54,16 @@ function addContact()
     }
 }
 
+function editContact()
+{
+
+}
+
+function deleteContact()
+{
+
+}
+
 function doSearch()
 {
 	let id = readCookie().userId; // get the userID from the cookie and pass through

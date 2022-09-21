@@ -1,4 +1,4 @@
-x`<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!--Boxicons CSS-->
@@ -15,58 +15,174 @@ x`<!DOCTYPE html>
       href="https://fonts.googleapis.com/css?family=Roboto:100"
       rel="stylesheet"
     />
-    <title>Home</title>
-
-    <p class="text1"></p>
-    <div class="search_bar_div">
-      <input
-        type="text"
-        class="search_bar"
-        placeholder="Search For Contact"
-      /><br />
-
-      <!--Add Contact Button-->
-      <button
-        class="bx bxs-message-square-add addButton"
-        onclick="location.href='addContact.html'"
-        title="Add Contact"
-      ></button>
-    </div>
   </head>
   <body onload="fetchContacts();">
-    <form action="../index.html">
-      <input class="logout" type="submit" value="Log out" />
-    </form>
     <div class="loginDiv">
-      <div class="contact_box">
 
+      <div class="logoutButton">
+        <form action="../index.html">
+          <input class="logout" type="submit" value="Log out" />
+        </form>
+      </div>
+      <div class="addButton">
+        <button
+            class="bx bxs-message-square-add addButton"
+            onclick="location.href='addContact.html'"
+            title="Add Contact"
+          ></button>
+      </div>
+
+      <input
+          type="text"
+          class="search_bar"
+          placeholder="Search For Contact"
+      /><br />
+      
+      <div class="allContacts">
         <div class="contact_info">
-
           <table class="table_contact">
             <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Phone Number</th>
-              <th>Email</th>
+              <th id="fName0"> </th>
+              <th id="lName0"> </th>
+              <th id="phoneNum0"> </th>
+              <th id="eMail0"> </th>
             </tr>
             <tr>
-              <td>Sam</td>
-              <td>Dosi</td>
-              <td>3219148380</td>
-              <td>sam.dosi10@gmail.com</td>
+              <td id="fNameVal0"> </td>
+              <td id="lNameVal0"> </td>
+              <td id="phoneNumVal0"> </td>
+              <td id="eMailVal0"> </td>
             </tr>
           </table>
-          <button class="edit">
+          <button class="edit" id="edit0" hidden>
             <img class="pencil" src="../pics/pencil.png" />
           </button>
-          <button class="delete">
+          <button class="delete" id="delete0" hidden>
             <img class="trash" src="../pics/trash.png" />
           </button>
         </div>
-      
+  
+        <div class="contact_info">
+          <table class="table_contact">
+            <tr>
+              <th id="fName1"> </th>
+              <th id="lName1"> </th>
+              <th id="phoneNum1"> </th>
+              <th id="eMail1"> </th>
+            </tr>
+            <tr>
+              <td id="fNameVal1"> </td>
+              <td id="lNameVal1"> </td>
+              <td id="phoneNumVal1"> </td>
+              <td id="eMailVal1"> </td>
+            </tr>
+          </table>
+          <button class="edit" id="edit1" hidden>
+            <img class="pencil" src="../pics/pencil.png" />
+          </button>
+          <button class="delete" id="delete1" hidden>
+            <img class="trash" src="../pics/trash.png" />
+          </button>
+        </div>
+  
+        <div class="contact_info">
+          <table class="table_contact">
+            <tr>
+              <th id="fName2"> </th>
+              <th id="lName2"> </th>
+              <th id="phoneNum2"> </th>
+              <th id="eMail2"> </th>
+            </tr>
+            <tr>
+              <td id="fNameVal2"> </td>
+              <td id="lNameVal2"> </td>
+              <td id="phoneNumVal2"> </td>
+              <td id="eMailVal2"> </td>
+            </tr>
+          </table>
+          <button class="edit" id="edit2" hidden>
+            <img class="pencil" src="../pics/pencil.png" />
+          </button>
+          <button class="delete" id="delete2" hidden>
+            <img class="trash" src="../pics/trash.png" />
+          </button>
+        </div>
+  
+        <div class="contact_info">
+          <table class="table_contact">
+            <tr>
+              <th id="fName3"> </th>
+              <th id="lName3"> </th>
+              <th id="phoneNum3"> </th>
+              <th id="eMail3"> </th>
+            </tr>
+            <tr>
+              <td id="fNameVal3"> </td>
+              <td id="lNameVal3"> </td>
+              <td id="phoneNumVal3"> </td>
+              <td id="eMailVal3"> </td>
+            </tr>
+          </table>
+          <button class="edit" id="edit3" hidden>
+            <img class="pencil" src="../pics/pencil.png" />
+          </button>
+          <button class="delete" id="delete3" hidden>
+            <img class="trash" src="../pics/trash.png" />
+          </button>
+        </div>
+  
+        <div class="contact_info">
+          <table class="table_contact">
+            <tr>
+              <th id="fName4"> </th>
+              <th id="lName4"> </th>
+              <th id="phoneNum4"> </th>
+              <th id="eMail4"> </th>
+            </tr>
+            <tr>
+              <td id="fNameVal4"> </td>
+              <td id="lNameVal4"> </td>
+              <td id="phoneNumVal4"> </td>
+              <td id="eMailVal4"> </td>
+            </tr>
+          </table>
+          <button class="edit" id="edit4" hidden>
+            <img class="pencil" src="../pics/pencil.png" />
+          </button>
+          <button class="delete" id="delete4" hidden>
+            <img class="trash" src="../pics/trash.png" />
+          </button>
+        </div>
+  
+        <div class="contact_info">
+          <table class="table_contact">
+            <tr>
+              <th id="fName5"> </th>
+              <th id="lName5"> </th>
+              <th id="phoneNum5"> </th>
+              <th id="eMail5"> </th>
+            </tr>
+            <tr>
+              <td id="fNameVal5"> </td>
+              <td id="lNameVal5"> </td>
+              <td id="phoneNumVal5"> </td>
+              <td id="eMailVal5"> </td>
+            </tr>
+          </table>
+          <button class="edit" id="edit5" hidden>
+            <img class="pencil" src="../pics/pencil.png" />
+          </button>
+          <button class="delete" id="delete5" hidden>
+            <img class="trash" src="../pics/trash.png" />
+          </button>
+        </div>
       </div>
 
-      <button class="bx bx-right-arrow-alt nextPage" title="Next Page"></button>
+      
+
+      <div class="nextPageDiv">
+        <button class="bx bx-right-arrow-alt nextPage" title="Next Page"></button>
+      </div>
     </div>
   </body>
 </html>

@@ -71,11 +71,6 @@ function deleteContact(id)
 	phoneNumber = document.getElementById("phoneNumVal" + idx).innerHTML;
 	email = document.getElementById("eMailVal" + idx).innerHTML;
 
-	// sanity check
-	console.log()
-	console.log(firstName);
-	console.log(email);
-
 	let tmp = {userID: userId, firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, email, email};
 	let payload = JSON.stringify(tmp);
 	console.log(payload);
@@ -90,21 +85,16 @@ function deleteContact(id)
         {
             if (this.readyState == 4 && this.status == 200) 
             {
-                // let jsonObject = JSON.parse(xhr.responseText);
-                // console.log(jsonObject);
-				
 				console.log("successfully deleted contact!");
-				fetchContacts();
-
-                // window.location.href = "/index.html";
+                window.location.href = "landingpage.html"; // redirect and refetch
             }
         };
 
-        xhr.send(jsonPayload);
+        xhr.send(payload);
 
     }catch(err)
     {
-        console.log("error");
+        console.log(err);
     }
 }
 
@@ -441,37 +431,6 @@ function doLogout()
 	lastName = "";
 	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
 	window.location.href = "index.html";
-}
-
-function addColor()
-{
-	let newColor = document.getElementById("colorText").value;
-	document.getElementById("colorAddResult").innerHTML = "";
-
-	let tmp = {color:newColor,userId,userId};
-	let jsonPayload = JSON.stringify( tmp );
-
-	let url = urlBase + '/AddColor.' + extension;
-	
-	let xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	try
-	{
-		xhr.onreadystatechange = function() 
-		{
-			if (this.readyState == 4 && this.status == 200) 
-			{
-				document.getElementById("colorAddResult").innerHTML = "Color has been added";
-			}
-		};
-		xhr.send(jsonPayload);
-	}
-	catch(err)
-	{
-		document.getElementById("colorAddResult").innerHTML = err.message;
-	}
-	
 }
 
 function searchColor()

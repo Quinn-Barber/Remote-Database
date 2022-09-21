@@ -224,6 +224,24 @@ function changePage(nextPage = true)
 					return;
 				}
 				document.getElementById("pageNum").innerHTML = "Page " + (pageNum+1) + "/" + (Math.floor(jsonObject.results.length/6)+1);
+				for(let i = 0; i < 6; i++){
+					let fStr = "fName";
+					let lStr = "lName";
+					let pStr = "phoneNum";
+					let eStr = "eMail";
+					let eButStr = "edit";
+					let dButStr = "delete";
+					document.getElementById(new String(fStr + i)).innerHTML = " ";
+					document.getElementById(new String(lStr + i)).innerHTML = " ";
+					document.getElementById(new String(pStr + i)).innerHTML = " ";
+					document.getElementById(new String(eStr + i)).innerHTML = " ";
+					document.getElementById(new String(fStr + "Val" + i)).innerHTML = " ";
+					document.getElementById(new String(lStr + "Val" + i)).innerHTML = " ";
+					document.getElementById(new String(pStr + "Val" + i)).innerHTML = " ";
+					document.getElementById(new String(eStr + "Val" + i)).innerHTML = " ";
+					document.getElementById(new String(eButStr + i)).setAttribute("hidden", "hidden");
+					document.getElementById(new String(dButStr + i)).setAttribute("hidden", "hidden");
+				}
 				for(let i = pageNum*6; i < jsonObject.results.length; i++)
 				{
 					var elId = i % 6;
@@ -250,6 +268,7 @@ function changePage(nextPage = true)
 					document.getElementById(new String(dButStr + elId)).removeAttribute("hidden");
 					if(elId == 5) break;
 				}
+				
 
 			}
 		};

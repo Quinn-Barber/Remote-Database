@@ -145,7 +145,7 @@ function fetchContacts()
 				console.log(xhr.responseText);
 				let jsonObject = JSON.parse( xhr.responseText );
 				console.log(jsonObject);
-				document.getElementById("pageNum").innerHTML = "Page 1/" + (jsonObject.results.length/6+1);
+				document.getElementById("pageNum").innerHTML = "Page 1/" + (Math.floor(jsonObject.results.length/6)+1);
 				for(let i = 0; i < jsonObject.results.length; i++)
 				{
 					var elId = i % 6;
@@ -223,7 +223,7 @@ function changePage(nextPage = true)
 					}
 					return;
 				}
-				document.getElementById("pageNum").innerHTML = "Page " + (pageNum+1) + "/" + (jsonObject.results.length/6+1);
+				document.getElementById("pageNum").innerHTML = "Page " + (pageNum+1) + "/" + (Math.floor(jsonObject.results.length/6)+1);
 				for(let i = pageNum*6; i < jsonObject.results.length; i++)
 				{
 					var elId = i % 6;

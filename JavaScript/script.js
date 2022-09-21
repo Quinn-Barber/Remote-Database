@@ -61,31 +61,51 @@ function editContact(id)
 
 function deleteContact(id)
 {
+	readCookie();
 	let idx = id;
 	var res = idx.replace(/\D/g, "");
 	idx = res;
 
-	firstName = document.getElementById("fNameVal" + idx).value;
-	lastName = document.getElementById("lNameVal" + idx).value;
-	phoneNumber = document.getElementById("phoneNumVal" + idx).value;
-	email = document.getElementById("eMailVal" + idx).value;
+	firstName = document.getElementById("fNameVal" + idx).innerHTML;
+	lastName = document.getElementById("lNameVal" + idx).innerHTML;
+	phoneNumber = document.getElementById("phoneNumVal" + idx).innerHTML;
+	email = document.getElementById("eMailVal" + idx).innerHTML;
 
 	// sanity check
+	console.log()
 	console.log(firstName);
 	console.log(email);
 
-	let tmp = {firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, email, email};
+	let tmp = {userID: userId, firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, email, email};
 	let payload = JSON.stringify(tmp);
 	console.log(payload);
 	let url = urlBase + "/remove_contact." + extension;
 
 	let xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8"); // pass cookie here?
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+    try
+    {
+        xhr.onreadystatechange = function() 
+        {
+            if (this.readyState == 4 && this.status == 200) 
+            {
+                // let jsonObject = JSON.parse(xhr.responseText);
+                // console.log(jsonObject);
+				
+				console.log("successfully deleted contact!");
+				fetchContacts();
 
-	try{}
-	catch(err)
-	{}
+                // window.location.href = "/index.html";
+            }
+        };
+
+        xhr.send(jsonPayload);
+
+    }catch(err)
+    {
+        console.log("error");
+    }
 }
 
 function doSearch()

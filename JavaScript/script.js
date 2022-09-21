@@ -147,10 +147,11 @@ function fetchContacts()
 
 				for(let i = 0; i < jsonObject.results.length; i++)
 				{
-					let fName = jsonObject.results[i][0];
-					let lName = jsonObject.results[i][1];
-					let phoneNum = jsonObject.results[i][2];
-					let eMail = jsonObject.results[i][3];
+					var resultsArr = jsonObject.results[i].split(',');
+					let fName = resultsArr[0];
+					let lName = resultsArr[1];
+					let phoneNum = resultsArr[2];
+					let eMail = resultsArr[3];
 					let fStr = "fName";
 					let lStr = "lName";
 					let pStr = "phoneNum";

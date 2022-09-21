@@ -21,7 +21,7 @@ button:hover {
   background-color: transparent;
   display: block;
   text-align: center;
-  height: 1110px;
+  height: 1150px;
   margin-top: 75px;
 }
 
@@ -120,4 +120,11 @@ p1{
   font-family: Roboto, Arial;
   font-weight: bold;
   font-size: 40px;
+}
+
+.searchButton{
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: -5px;
+  width: 20%;
 }

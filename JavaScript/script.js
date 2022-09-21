@@ -62,10 +62,17 @@ function editContact(id)
 function deleteContact(id)
 {
 	let idx = id;
+	var res = idx.replace(/\D/g, "");
+	idx = res;
+
 	firstName = document.getElementById("fNameVal" + idx).value;
 	lastName = document.getElementById("lNameVal" + idx).value;
 	phoneNumber = document.getElementById("phoneNumVal" + idx).value;
 	email = document.getElementById("eMailVal" + idx).value;
+
+	// sanity check
+	console.log(firstName);
+	console.log(email);
 
 	let tmp = {firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, email, email};
 	let payload = JSON.stringify(tmp);

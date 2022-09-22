@@ -465,10 +465,9 @@ function readCookie()
 		}
 		else if (tokens[0] == "modified")
 		{
-			console.log(tokens[1]);
-
-			// modified = JSON.parse(tokens[1]);
-			console.log(modified);
+			// console.log(tokens[1]);
+			modified = JSON.parse(tokens[1]);
+			// console.log(modified);
 		}
 	}
 	

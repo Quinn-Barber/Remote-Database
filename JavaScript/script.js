@@ -435,7 +435,7 @@ function saveCookie()
 	let date = new Date();
 	date.setTime(date.getTime()+(minutes*60*1000));	
 	document.cookie = "firstName=" + firstName + "#lastName=" + lastName + "#userId=" + userId + 
-					  "#editing=" + editing + "#modified=" + modified + "#expires=" + date.toGMTString();
+					  "#editing=" + editing + "#modified=" + JSON.stringify(modified) + "#expires=" + date.toGMTString();
 }
 
 function readCookie()

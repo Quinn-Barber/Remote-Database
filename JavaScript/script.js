@@ -5,6 +5,29 @@ let pageNum = 0;
 let userId = 0;
 let firstName = "";
 let lastName = "";
+let modified = null;
+let editing = true;
+
+// fill in the addContact fields and edit text fields
+function editContact_populate()
+{
+	readCookie();
+
+	if (editing == false)
+		return;
+
+	let status = document.getElementById("status");
+	let firstname = document.getElementById("fname");
+	let lastname = document.getElementById("lname");
+	let pnum = document.getElementById("pnumber");
+	let email = document.getElementById("email");
+
+	status.innerText = "Edit Contact";
+	firstname.value = modified.firstName;
+	lastname.value = modified.lastName;
+	pnum.value = modified.phoneNumber;
+	email.value = modified.email;
+}
 
 function addContact()
 {
@@ -17,6 +40,16 @@ function addContact()
 	let tmp = {userID: userId, firstName: firstname, lastName: lastname, phoneNumber: pnum, email: email};
 	let jsonPayload = JSON.stringify(tmp);
 	console.log(jsonPayload);
+
+	if (editing = true)
+	{
+		// use original data as well as jsonPayload to update information.
+		editing = false;
+		modified = null;
+		saveCookie();
+		return;
+	}
+
 	let url = urlBase + '/add_contact.' + extension;
 
 	let xhr = new XMLHttpRequest();
@@ -50,13 +83,26 @@ function addContact()
     }catch(err)
     {
 		console.log(err);
-        console.log("error");
     }
 }
 
 function editContact(id)
 {
+	readCookie();
+	let idx = id;
+	var res = idx.replace(/\D/g, "");
+	idx = res;
 
+	firstName = document.getElementById("fNameVal" + idx).innerHTML;
+	lastName = document.getElementById("lNameVal" + idx).innerHTML;
+	phoneNumber = document.getElementById("phoneNumVal" + idx).innerHTML;
+	email = document.getElementById("eMailVal" + idx).innerHTML;
+	modified = {userID: userId, firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, email: email};
+	editing = true;
+
+	saveCookie(); // saves modified and editing
+
+	window.location.href = "addContact.html";
 }
 
 function deleteContact(id)
@@ -388,14 +434,15 @@ function saveCookie()
 	let minutes = 20;
 	let date = new Date();
 	date.setTime(date.getTime()+(minutes*60*1000));	
-	document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + ";expires=" + date.toGMTString();
+	document.cookie = "firstName=" + firstName + "#lastName=" + lastName + "#userId=" + userId + 
+					  "#editing=" + editing + "#modified=" + modified + "#expires=" + date.toGMTString();
 }
 
 function readCookie()
 {
 	userId = -1;
 	let data = document.cookie;
-	let splits = data.split(",");
+	let splits = data.split("#");
 	for(var i = 0; i < splits.length; i++) 
 	{
 		let thisOne = splits[i].trim();
@@ -411,6 +458,14 @@ function readCookie()
 		else if( tokens[0] == "userId" )
 		{
 			userId = parseInt( tokens[1].trim() );
+		}
+		else if (tokens[0] == "editing")
+		{
+			editing = (tokens[1] === 'true');
+		}
+		else if (tokens[0] == "modified")
+		{
+			modified = JSON.parse(tokens[1]);
 		}
 	}
 	

@@ -465,7 +465,11 @@ function readCookie()
 		}
 		else if (tokens[0] == "modified")
 		{
+			if(tokens[1] == null)
+				continue;
+				
 			modified = JSON.parse(tokens[1]);
+			console.log(modified);
 		}
 	}
 	
@@ -488,47 +492,47 @@ function doLogout()
 	window.location.href = "index.html";
 }
 
-function searchColor()
-{
-	let srch = document.getElementById("searchText").value;
-	document.getElementById("colorSearchResult").innerHTML = "";
+// function searchColor()
+// {
+// 	let srch = document.getElementById("searchText").value;
+// 	document.getElementById("colorSearchResult").innerHTML = "";
 	
-	let colorList = "";
+// 	let colorList = "";
 
-	let tmp = {search:srch,userId:userId};
-	let jsonPayload = JSON.stringify( tmp );
+// 	let tmp = {search:srch,userId:userId};
+// 	let jsonPayload = JSON.stringify( tmp );
 
-	let url = urlBase + '/SearchColors.' + extension;
+// 	let url = urlBase + '/SearchColors.' + extension;
 	
-	let xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	try
-	{
-		xhr.onreadystatechange = function() 
-		{
-			if (this.readyState == 4 && this.status == 200) 
-			{
-				document.getElementById("colorSearchResult").innerHTML = "Color(s) has been retrieved";
-				let jsonObject = JSON.parse( xhr.responseText );
+// 	let xhr = new XMLHttpRequest();
+// 	xhr.open("POST", url, true);
+// 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+// 	try
+// 	{
+// 		xhr.onreadystatechange = function() 
+// 		{
+// 			if (this.readyState == 4 && this.status == 200) 
+// 			{
+// 				document.getElementById("colorSearchResult").innerHTML = "Color(s) has been retrieved";
+// 				let jsonObject = JSON.parse( xhr.responseText );
 				
-				for( let i=0; i<jsonObject.results.length; i++ )
-				{
-					colorList += jsonObject.results[i];
-					if( i < jsonObject.results.length - 1 )
-					{
-						colorList += "<br />\r\n";
-					}
-				}
+// 				for( let i=0; i<jsonObject.results.length; i++ )
+// 				{
+// 					colorList += jsonObject.results[i];
+// 					if( i < jsonObject.results.length - 1 )
+// 					{
+// 						colorList += "<br />\r\n";
+// 					}
+// 				}
 				
-				document.getElementsByTagName("p")[0].innerHTML = colorList;
-			}
-		};
-		xhr.send(jsonPayload);
-	}
-	catch(err)
-	{
-		document.getElementById("colorSearchResult").innerHTML = err.message;
-	}
+// 				document.getElementsByTagName("p")[0].innerHTML = colorList;
+// 			}
+// 		};
+// 		xhr.send(jsonPayload);
+// 	}
+// 	catch(err)
+// 	{
+// 		document.getElementById("colorSearchResult").innerHTML = err.message;
+// 	}
 	
-}
+// }

@@ -5,8 +5,7 @@ let pageNum = 0;
 let userId = 0;
 let firstName = "";
 let lastName = "";
-let modified = null;
-let editing = false;
+let modified = {};
 
 function addContact()
 {
@@ -60,13 +59,14 @@ function editContact_populate()
 {
 	readCookie();
 
+	console.log(modified);
+
 	let status = document.getElementById("status");
 	let firstname = document.getElementById("fname");
 	let lastname = document.getElementById("lname");
 	let pnum = document.getElementById("pnumber");
 	let email = document.getElementById("email");
 
-	status.innerText = "Edit Contact";
 	firstname.value = modified.firstName;
 	lastname.value = modified.lastName;
 	pnum.value = modified.phoneNumber;
@@ -85,7 +85,6 @@ function editContact(id)
 	phoneNumber = document.getElementById("phoneNumVal" + idx).innerHTML;
 	email = document.getElementById("eMailVal" + idx).innerHTML;
 	modified = {userID: userId, firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, email: email};
-	editing = true;
 
 	saveCookie(); // saves modified and editing
 
@@ -421,8 +420,8 @@ function saveCookie()
 	let minutes = 20;
 	let date = new Date();
 	date.setTime(date.getTime()+(minutes*60*1000));	
-	document.cookie = "firstName=" + firstName + "#lastName=" + lastName + "#userId=" + userId + 
-					  "#editing=" + editing + "#modified=" + JSON.stringify(modified) + "#expires=" + date.toGMTString();
+	document.cookie = "firstName=" + firstName + "#lastName=" + lastName + "#userId=" + userId + "#modified=" + JSON.stringify(modified) + "#expires=" + date.toGMTString();
+	console.log(document.cookie);
 }
 
 function readCookie()
@@ -446,16 +445,11 @@ function readCookie()
 		{
 			userId = parseInt( tokens[1].trim() );
 		}
-		else if (tokens[0] == "editing")
+		else if (tokens[0] === "modified")
 		{
-			editing = (tokens[1] === 'true');
-			console.log(editing);
-		}
-		else if (tokens[0] == "modified")
-		{
-			// console.log(tokens[1]);
-			modified = JSON.parse(tokens[1]);
-			console.log(modified);
+			console.log(tokens[1]);
+			// modified = JSON.parse(tokens[1]);
+			// console.log(modified);
 		}
 	}
 	

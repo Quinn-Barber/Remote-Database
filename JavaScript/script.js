@@ -421,7 +421,6 @@ function saveCookie()
 	let date = new Date();
 	date.setTime(date.getTime()+(minutes*60*1000));	
 	document.cookie = "firstName=" + firstName + "#lastName=" + lastName + "#userId=" + userId + "#modified=" + JSON.stringify(modified) + "#expires=" + date.toGMTString();
-	console.log(document.cookie);
 }
 
 function readCookie()
@@ -468,6 +467,7 @@ function doLogout()
 	userId = 0;
 	firstName = "";
 	lastName = "";
+	modified = {};
 	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
 	window.location.href = "index.html";
 }

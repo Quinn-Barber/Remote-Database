@@ -8,27 +8,6 @@ let lastName = "";
 let modified = null;
 let editing = false;
 
-// fill in the addContact fields and edit text fields
-function editContact_populate()
-{
-	readCookie();
-	console.log(modified);
-	if (editing == false)
-		return;
-
-	let status = document.getElementById("status");
-	let firstname = document.getElementById("fname");
-	let lastname = document.getElementById("lname");
-	let pnum = document.getElementById("pnumber");
-	let email = document.getElementById("email");
-
-	status.innerText = "Edit Contact";
-	firstname.value = modified.firstName;
-	lastname.value = modified.lastName;
-	pnum.value = modified.phoneNumber;
-	email.value = modified.email;
-}
-
 function addContact()
 {
 	readCookie();
@@ -40,15 +19,6 @@ function addContact()
 	let tmp = {userID: userId, firstName: firstname, lastName: lastname, phoneNumber: pnum, email: email};
 	let jsonPayload = JSON.stringify(tmp);
 	console.log(jsonPayload);
-
-	if (editing = true)
-	{
-		// use original data as well as jsonPayload to update information.
-		editing = false;
-		modified = null;
-		saveCookie();
-		return;
-	}
 
 	let url = urlBase + '/add_contact.' + extension;
 
@@ -86,6 +56,23 @@ function addContact()
     }
 }
 
+function editContact_populate()
+{
+	readCookie();
+
+	let status = document.getElementById("status");
+	let firstname = document.getElementById("fname");
+	let lastname = document.getElementById("lname");
+	let pnum = document.getElementById("pnumber");
+	let email = document.getElementById("email");
+
+	status.innerText = "Edit Contact";
+	firstname.value = modified.firstName;
+	lastname.value = modified.lastName;
+	pnum.value = modified.phoneNumber;
+	email.value = modified.email;
+}
+
 function editContact(id)
 {
 	readCookie();
@@ -102,7 +89,7 @@ function editContact(id)
 
 	saveCookie(); // saves modified and editing
 
-	window.location.href = "addContact.html";
+	window.location.href = "editContact.html";
 }
 
 function deleteContact(id)

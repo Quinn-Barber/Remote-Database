@@ -6,13 +6,13 @@ let userId = 0;
 let firstName = "";
 let lastName = "";
 let modified = null;
-let editing = true;
+let editing = false;
 
 // fill in the addContact fields and edit text fields
 function editContact_populate()
 {
 	readCookie();
-
+	console.log(modified);
 	if (editing == false)
 		return;
 

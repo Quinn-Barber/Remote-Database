@@ -55,22 +55,30 @@ function addContact()
     }
 }
 
-function editContact_populate()
+// function editContact_populate()
+// {
+// 	readCookie();
+
+// 	console.log(modified);
+
+// 	let status = document.getElementById("status");
+// 	let firstname = document.getElementById("fname");
+// 	let lastname = document.getElementById("lname");
+// 	let pnum = document.getElementById("pnumber");
+// 	let email = document.getElementById("email");
+
+// 	firstname.value = modified.firstName;
+// 	lastname.value = modified.lastName;
+// 	pnum.value = modified.phoneNumber;
+// 	email.value = modified.email;
+// }
+
+function submitEditContact()
 {
-	readCookie();
+	modified = sessionStorage.getItem('originalContact');
+	modified = JSON.parse(modified);
 
 	console.log(modified);
-
-	let status = document.getElementById("status");
-	let firstname = document.getElementById("fname");
-	let lastname = document.getElementById("lname");
-	let pnum = document.getElementById("pnumber");
-	let email = document.getElementById("email");
-
-	firstname.value = modified.firstName;
-	lastname.value = modified.lastName;
-	pnum.value = modified.phoneNumber;
-	email.value = modified.email;
 }
 
 function editContact(id)
@@ -86,7 +94,8 @@ function editContact(id)
 	email = document.getElementById("eMailVal" + idx).innerHTML;
 	modified = {userID: userId, firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, email: email};
 
-	saveCookie(); // saves modified and editing
+	sessionStorage.setItem('originalContact', JSON.stringify(modified));
+
 
 	window.location.href = "editContact.html";
 }
@@ -420,7 +429,7 @@ function saveCookie()
 	let minutes = 20;
 	let date = new Date();
 	date.setTime(date.getTime()+(minutes*60*1000));	
-	document.cookie = "firstName=" + firstName + "#lastName=" + lastName + "#userId=" + userId + "#modified=" + JSON.stringify(modified) + "#expires=" + date.toGMTString();
+	document.cookie = "firstName=" + firstName + "#lastName=" + lastName + "#userId=" + userId + "#expires=" + date.toGMTString();
 }
 
 function readCookie()
@@ -443,12 +452,6 @@ function readCookie()
 		else if( tokens[0] == "userId" )
 		{
 			userId = parseInt( tokens[1].trim() );
-		}
-		else if (tokens[0] === "modified")
-		{
-			console.log(tokens[1]);
-			// modified = JSON.parse(tokens[1]);
-			// console.log(modified);
 		}
 	}
 	

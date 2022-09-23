@@ -99,6 +99,8 @@ function submitEditContact()
         {
             if (this.readyState == 4 && this.status == 200) 
             {
+				let jsonObject = JSON.parse(xhr.responseText);
+                console.log(jsonObject);
 				console.log("successfully modified contact!");
                 window.location.href = "landingpage.html"; // redirect and refetch
             }

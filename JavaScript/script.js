@@ -198,6 +198,7 @@ function doSearch()
 				console.log(jsonObject);
 				console.log(xhr.responseText);
 				document.getElementById("pageNum").innerHTML = "Page 1/" + (Math.floor((jsonObject.results.length)/6)+1);
+				console.log(xhr.responseText);
 
 				let matchCount = 0;	//counts only valid matches
 				for(let i = 0; i < jsonObject.results.length; i++)

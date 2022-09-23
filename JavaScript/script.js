@@ -299,7 +299,7 @@ function fetchContacts()
 {
 	readCookie();
 	console.log("getting contacts for userID: " + userId);
-
+	
 	let tmp = {userId:userId};
 	let jsonPayload = JSON.stringify( tmp );
 	let url = urlBase + '/populate_landingpage.' + extension;

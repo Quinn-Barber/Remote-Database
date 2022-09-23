@@ -24,7 +24,7 @@
 		
 		while($row = $result->fetch_assoc())
 		{
-			echo "searchCount is $searchCount, Comparing search: $searchTerm, to first name: $row["firstname"];
+			echo "searchCount is $searchCount, Comparing search: $searchTerm, to first name: $row["firstname"]";
 			if( $searchCount > 0 )
 			{
 				if($searchTerm = $row["firstname"])		//CHANGED: made this conditional, only moves on to next entry when one is found

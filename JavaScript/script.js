@@ -57,6 +57,7 @@ function addContact()
 
 function editContact_populate()
 {
+	readCookie();
 	modified = sessionStorage.getItem('originalContact');
 	modified = JSON.parse(modified);
 

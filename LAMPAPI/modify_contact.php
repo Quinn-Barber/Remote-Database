@@ -4,8 +4,7 @@
 
 	$inData = getRequestInfo();
 	$zero = 0;
-    // $user_id = $inData["userID"];
-    $user_id = 13;
+    $user_id = $inData["userID"];
 	$fname = $inData["firstName"];
 	$lname = $inData["lastName"];
     $email = $inData["email"];
@@ -23,8 +22,8 @@
 	} 
 	else
 	{
-		$stmt = $conn->prepare("UPDATE contact_list SET firstname=?, lastname=?, phone_number=?, email=? WHERE user_id=?");
-		$stmt->bind_param("ssssi", $fname, $lname, $pnum, $email, $user_id);
+		$stmt = $conn->prepare("UPDATE contact_list SET firstname=?, lastname=?, phone_number=?, email=? WHERE user_id=? AND email=?");
+		$stmt->bind_param("ssssi", $fname, $lname, $pnum, $email, $user_id, $og_email);
 		$stmt->execute();
 		$stmt->close();
 		$conn->close();

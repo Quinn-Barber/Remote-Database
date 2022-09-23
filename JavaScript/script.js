@@ -198,10 +198,10 @@ function doSearch()
 				console.log(jsonObject);
 				document.getElementById("pageNum").innerHTML = "Page 1/" + (Math.floor(jsonObject.results.length/6)+1);
 
-				
+				let resultCount = 0;	//counts only valid matches
 				for(let i = 0; i < jsonObject.results.length; i++)
 				{
-					var elId = i % 6;
+					var elId = resultCount % 6;
 					var resultsArr = jsonObject.results[i].split(',');
 					let fName = resultsArr[0];
 					let lName = resultsArr[1];
@@ -213,6 +213,10 @@ function doSearch()
 					let eStr = "eMail";
 					let eButStr = "edit";
 					let dButStr = "delete";
+					if((tmp.search != fStr) && (tmp.search != lStr)&&(tmp.search != pStr)&&(tmp.search != eStr)) //FIXME this only does full word matches I believe
+					{
+						continue;
+					}
 					document.getElementById(new String(fStr + elId)).innerHTML = "First Name";
 					document.getElementById(new String(lStr + elId)).innerHTML = "Last Name";
 					document.getElementById(new String(pStr + elId)).innerHTML = "Phone Number";
@@ -224,6 +228,8 @@ function doSearch()
 					document.getElementById(new String(eButStr + elId)).removeAttribute("hidden");
 					document.getElementById(new String(dButStr + elId)).removeAttribute("hidden");
 					if(elId == 5) break;
+					resultcount++;
+					
 				}
 
 			}

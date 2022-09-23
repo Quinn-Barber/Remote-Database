@@ -175,7 +175,6 @@ function deleteContact(id)
 function doSearch()
 {
 	readCookie();
-	console.log("searching the contacts from user " + userId);
 	// let id = readCookie().userId; // get the userID from the cookie and pass through
 	// pass cookie through GET request to ensure search can search according to logged-in user; only userID?
 	let query = document.getElementById("searchBar").value; // searchfield does not yet exist	//CHANGED: 'searchField' into 'searchBar' to reflect existing searchbar from landingpage.html
@@ -227,7 +226,7 @@ function doSearch()
 
 			}
 		};
-		xhr.send(jsonPayload); //FIXME? no longer in a "POST"
+		xhr.send(payload); //FIXME? no longer in a "POST"
 	}
 	catch(err)
 	{

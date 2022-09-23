@@ -180,7 +180,7 @@ function doSearch()
 	let query = document.getElementById("searchBar").value; // searchfield does not yet exist	//CHANGED: 'searchField' into 'searchBar' to reflect existing searchbar from landingpage.html
 	let tmp = {search: query, userID: userId};
 	let jsonPayload = JSON.stringify(tmp);
-	console.log(payload);
+	console.log(jsonPayload);
 	let url = urlBase + '/search.' + extension;
 
 	let xhr = new XMLHttpRequest();

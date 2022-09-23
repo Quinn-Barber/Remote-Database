@@ -196,6 +196,7 @@ function doSearch()
 				console.log(xhr.responseText);
 				let jsonObject = JSON.parse( xhr.responseText );
 				console.log(jsonObject);
+				console.log(xhr.responseText);
 				document.getElementById("pageNum").innerHTML = "Page 1/" + (Math.floor((jsonObject.results.length)/6)+1);
 
 				let matchCount = 0;	//counts only valid matches
@@ -558,7 +559,7 @@ function doLogout()
 	lastName = "";
 	modified = {};
 	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
-	window.location.replace(www.poostproject.xyz); // = "../index.html";
+	window.location.href = "../index.html";
 }
 
 // function searchColor()

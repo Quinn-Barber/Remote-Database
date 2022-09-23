@@ -16,7 +16,7 @@
 	{
 		// check to see if information in contact_list also has the same firstname from the cookie
 		$stmt = $conn->prepare("select firstname from contact_list where firstname like ? and user_id=?");
-		echo $inData;
+		
 		$searchTerm = "%" . $inData["searchTerm"] . "%";				//CHANGED:
 		$stmt->bind_param("ss", $searchTerm, $inData["userId"]);	//	$colorName changed to $searchTerm since it's now the value being searched for.
 		$stmt->execute();
@@ -25,7 +25,7 @@
 		
 		while($row = $result->fetch_assoc())
 		{
-			echo "searchCount is $searchCount, Comparing search: $searchTerm, to first name: $row["firstname"]";
+			// echo "searchCount is $searchCount, Comparing search: $searchTerm, to first name: $row["firstname"]";
 			if( $searchCount > 0 )
 			{
 				if($searchTerm = $row["firstname"])		//CHANGED: made this conditional, only moves on to next entry when one is found

@@ -197,7 +197,7 @@ function doSearch()
 				let jsonObject = JSON.parse( xhr.responseText );
 				console.log(jsonObject);
 				console.log(JSON.stringify(jsonObject.results));
-				document.getElementById("pageNum").innerHTML = "Page 1/" + (Math.floor((jsonObject.results.length)/6)+1);
+				
 				
 
 				let matchCount = 0;	//counts only valid matches
@@ -233,7 +233,7 @@ function doSearch()
 					resultcount++;
 					
 				}
-
+				document.getElementById("pageNum").innerHTML = "Page 1/" + (Math.floor((jsonObject.results.length)/6)+1); //FIXME seems like this was breaking, moved it here so it can know how many results are found
 			}
 		};
 		console.log("payload sent is "+ jsonPayload);

@@ -226,7 +226,7 @@ function doSearch()
 
 			}
 		};
-		xhr.send(jsonPayload); //FIXME? no longer in a "POST"
+		// xhr.send(jsonPayload); //FIXME? no longer in a "POST" //FIXME important?!?! caused an error though
 	}
 	catch(err)
 	{

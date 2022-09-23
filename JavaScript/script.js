@@ -198,10 +198,10 @@ function doSearch()
 				console.log(jsonObject);
 				document.getElementById("pageNum").innerHTML = "Page 1/" + (Math.floor((jsonObject.results.length)/6)+1);
 
-				let resultCount = 0;	//counts only valid matches
+				let matchCount = 0;	//counts only valid matches
 				for(let i = 0; i < jsonObject.results.length; i++)
 				{
-					var elId = resultCount % 6;
+					var elId = matchCount % 6;
 					var resultsArr = jsonObject.results[i].split(',');
 					let fName = resultsArr[0];
 					let lName = resultsArr[1];
@@ -558,7 +558,7 @@ function doLogout()
 	lastName = "";
 	modified = {};
 	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
-	window.location.href = "../index.html";
+	window.location.href = "#"; //was "../index.html";
 }
 
 // function searchColor()

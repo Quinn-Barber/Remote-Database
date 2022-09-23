@@ -15,13 +15,14 @@
 	else
 	{
 		// check to see if information in contact_list also has the same firstname from the cookie
-		$stmt = $conn->prepare("SELECT firstname FROM contact_list where firstname like ? and user_id=?");
+		$stmt = $conn->prepare("SELECT firstname FROM contact_list WHERE firstname LIKE ? AND user_id=?");
 		
 		$searchTerm = $inData["search"];				//CHANGED: was "%" . $inData["query"] . "%"
 		$stmt->bind_param("si", $searchTerm, $inData["userId"]);	//	$colorName changed to $searchTerm since it's now the value being searched for.
 		$stmt->execute();
 
 		$result = $stmt->get_result();
+		
 		
 		while($row = $result->fetch_assoc())
 		{

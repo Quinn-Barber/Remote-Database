@@ -28,17 +28,15 @@
 			// echo "searchCount is $searchCount, Comparing search: $searchTerm, to first name: $row["firstname"]";
 			if( $searchCount > 0 )
 			{
-				if($searchTerm = $row["firstname"])		//CHANGED: made this conditional, only moves on to next entry when one is found
-				{
+				
 				$searchResults .= ",";
-				}
+				
 			}
 
 			$searchCount++;
-			if($searchTerm = $row["firstname"])		//CHANGED: made this conditional, intended to only update searchTerm results when there is a match
-			{
+			
 			$searchResults .= '"' . $row["firstname"] .','. $row["lastname"] .','. $row["phone_number"] . ','. $row["email"] . '"';	//CHANGED: to a more complete version from landingpage.html
-			}
+			
 		}
 		
 		if( $searchCount == 0 )

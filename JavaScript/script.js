@@ -184,7 +184,7 @@ function doSearch()
 	let url = urlBase + '/search.' + extension;
 
 	let xhr = new XMLHttpRequest();
-	xhr.open("GET", url, true);
+	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
 	try			//CHANGED: try/catch currently copied exactly from fetchContacts(). If I am right, the changes I made in search.php mean this will only populate the results with matching firstnames.
@@ -197,6 +197,8 @@ function doSearch()
 				let jsonObject = JSON.parse( xhr.responseText );
 				console.log(jsonObject);
 				document.getElementById("pageNum").innerHTML = "Page 1/" + (Math.floor(jsonObject.results.length/6)+1);
+
+				
 				for(let i = 0; i < jsonObject.results.length; i++)
 				{
 					var elId = i % 6;

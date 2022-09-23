@@ -174,6 +174,7 @@ function deleteContact(id)
 
 function doSearch()
 {
+	console.log(xhr.responseText);
 	readCookie();
 	// let id = readCookie().userId; // get the userID from the cookie and pass through
 	// pass cookie through GET request to ensure search can search according to logged-in user; only userID?

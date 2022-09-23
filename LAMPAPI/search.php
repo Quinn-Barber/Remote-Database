@@ -22,7 +22,7 @@
 		$stmt->execute();
 
 		$result = $stmt->get_result();
-		console.log($result);//useable?
+		
 		
 		while($row = $result->fetch_assoc())
 		{

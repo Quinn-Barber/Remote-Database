@@ -55,23 +55,22 @@ function addContact()
     }
 }
 
-// function editContact_populate()
-// {
-// 	readCookie();
+function editContact_populate()
+{
+	modified = sessionStorage.getItem('originalContact');
+	modified = JSON.parse(modified);
 
-// 	console.log(modified);
+	let status = document.getElementById("status");
+	let firstname = document.getElementById("fname");
+	let lastname = document.getElementById("lname");
+	let pnum = document.getElementById("pnumber");
+	let email = document.getElementById("email");
 
-// 	let status = document.getElementById("status");
-// 	let firstname = document.getElementById("fname");
-// 	let lastname = document.getElementById("lname");
-// 	let pnum = document.getElementById("pnumber");
-// 	let email = document.getElementById("email");
-
-// 	firstname.value = modified.firstName;
-// 	lastname.value = modified.lastName;
-// 	pnum.value = modified.phoneNumber;
-// 	email.value = modified.email;
-// }
+	firstname.value = modified.firstName;
+	lastname.value = modified.lastName;
+	pnum.value = modified.phoneNumber;
+	email.value = modified.email;
+}
 
 function submitEditContact()
 {

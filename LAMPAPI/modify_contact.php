@@ -23,7 +23,7 @@
 	else
 	{
 		$stmt = $conn->prepare("UPDATE contact_list SET firstname=?, lastname=?, phone_number=?, email=? WHERE user_id=? AND firstname=? AND lastname=? AND phone_number=? AND email=?");
-		$stmt->bind_param("ssssissss", $fname, $lname, $pnum, $email, $user_id, );
+		$stmt->bind_param("ssssissss", $fname, $lname, $pnum, $email, $user_id, $og_fname, $og_lname, $og_pnum, $og_email);
 		$stmt->execute();
 		$stmt->close();
 		$conn->close();

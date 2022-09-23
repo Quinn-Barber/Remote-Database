@@ -558,7 +558,7 @@ function doLogout()
 	lastName = "";
 	modified = {};
 	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
-	window.location.href = "#"; //was "../index.html";
+	window.location.hostname;	// window.location.href = "../index.html";
 }
 
 // function searchColor()

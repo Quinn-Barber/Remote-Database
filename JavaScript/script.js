@@ -76,8 +76,39 @@ function submitEditContact()
 {
 	modified = sessionStorage.getItem('originalContact');
 	modified = JSON.parse(modified);
+	let firstname = document.getElementById("fname").value;
+	let lastname = document.getElementById("lname").value;
+	let pnum = document.getElementById("pnumber").value;
+	let email = document.getElementById("email").value;
 
-	console.log(modified);
+	let tmp = {userID: userId, og_firstName: modified.firstName, og_lastname: modified.lastName, og_phoneNumber: modified.phoneNumber, og_email: modified.email,
+		   firstName: firstname, lastName: lastname, phoneNumber: pnum, email: email};
+
+	let payload = JSON.stringify(tmp);
+	console.log(payload);
+	let url = urlBase + "/modify_contact." + extension;
+
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	
+	try
+    {
+        xhr.onreadystatechange = function() 
+        {
+            if (this.readyState == 4 && this.status == 200) 
+            {
+				console.log("successfully modified contact!");
+                window.location.href = "landingpage.html"; // redirect and refetch
+            }
+        };
+
+        xhr.send(payload);
+
+    }catch(err)
+    {
+        console.log(err);
+    }
 }
 
 function editContact(id)

@@ -179,7 +179,7 @@ function doSearch()
 	// let id = readCookie().userId; // get the userID from the cookie and pass through
 	// pass cookie through GET request to ensure search can search according to logged-in user; only userID?
 	let query = document.getElementById("searchBar").value; // searchfield does not yet exist	//CHANGED: 'searchField' into 'searchBar' to reflect existing searchbar from landingpage.html
-	let tmp = {search: query, userID: id};
+	let tmp = {search: query, userID: userId};
 	let payload = JSON.stringify(tmp);
 	console.log(payload);
 	let url = urlBase + '/search.' + extension;

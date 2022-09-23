@@ -22,8 +22,8 @@
 	} 
 	else
 	{
-		$stmt = $conn->prepare("UPDATE contact_list SET firstname=?, lastname=?, phone_number=?, email=? WHERE user_id=?,firstname=?,lastname=?,phone_number=?,email=?");
-		$stmt->bind_param("ssssissss", $fname, $lname, $pnum, $email, $user_id, $og_fname, $og_lname, $og_pnum, $og_email);
+		$stmt = $conn->prepare("UPDATE contact_list SET firstname=?, lastname=?, phone_number=?, email=? WHERE user_id=?");
+		$stmt->bind_param("ssssissss", $fname, $lname, $pnum, $email, $user_id);
 		$stmt->execute();
 		$stmt->close();
 		$conn->close();

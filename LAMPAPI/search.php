@@ -16,8 +16,8 @@
 	{
 		// check to see if information in contact_list also has the same firstname from the cookie
 		$stmt = $conn->prepare("select firstname from contact_list where firstname like ? and user_id=?");
-		$colorName = "%" . $inData["search"] . "%";
-		$stmt->bind_param("ss", $colorName, $inData["userId"]);
+		$searchTerm = "%" . $inData["searchTerm"] . "%";				//CHANGED:
+		$stmt->bind_param("ss", $searchTerm, $inData["userId"]);	//	$colorName changed to $searchTerm since it's now the value being searched for.
 		$stmt->execute();
 		
 		$result = $stmt->get_result();
@@ -26,11 +26,17 @@
 		{
 			if( $searchCount > 0 )
 			{
+				if($searchTerm = $row["firstname"])		//CHANGED: made this conditional, only moves on to next entry when one is found
+				{
 				$searchResults .= ",";
+				}
 			}
 
 			$searchCount++;
-			$searchResults .= '"' . $row["firstname"] . '"';
+			if($searchTerm = $row["firstname"])		//CHANGED: made this conditional, intended to only update searchTerm results when there is a match
+			{
+			$searchResults .= '"' . $row["firstname"] .','. $row["lastname"] .','. $row["phone_number"] . ','. $row["email"] . '"';	//CHANGED: to a more complete version from landingpage.html
+			}
 		}
 		
 		if( $searchCount == 0 )

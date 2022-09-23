@@ -176,7 +176,7 @@ function doSearch()
 {
 	let id = readCookie().userId; // get the userID from the cookie and pass through
 	// pass cookie through GET request to ensure search can search according to logged-in user; only userID?
-	let query = document.getElementById("searchField").value; // searchfield does not yet exist
+	let query = document.getElementById("searchBar").value; // searchfield does not yet exist	//CHANGED: 'searchField' into 'searchBar' to reflect existing searchbar from landingpage.html
 	let tmp = {search: query, userID: id};
 	let payload = JSON.stringify(tmp);
 	console.log(payload);
@@ -186,9 +186,52 @@ function doSearch()
 	xhr.open("GET", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
-	try{}
+	try			//CHANGED: try/catch currently copied exactly from fetchContacts(). If I am right, the changes I made in search.php mean this will only populate the results with matching firstnames.
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				console.log(xhr.responseText);
+				let jsonObject = JSON.parse( xhr.responseText );
+				console.log(jsonObject);
+				document.getElementById("pageNum").innerHTML = "Page 1/" + (Math.floor(jsonObject.results.length/6)+1);
+				for(let i = 0; i < jsonObject.results.length; i++)
+				{
+					var elId = i % 6;
+					var resultsArr = jsonObject.results[i].split(',');
+					let fName = resultsArr[0];
+					let lName = resultsArr[1];
+					let phoneNum = resultsArr[2];
+					let eMail = resultsArr[3];
+					let fStr = "fName";
+					let lStr = "lName";
+					let pStr = "phoneNum";
+					let eStr = "eMail";
+					let eButStr = "edit";
+					let dButStr = "delete";
+					document.getElementById(new String(fStr + elId)).innerHTML = "First Name";
+					document.getElementById(new String(lStr + elId)).innerHTML = "Last Name";
+					document.getElementById(new String(pStr + elId)).innerHTML = "Phone Number";
+					document.getElementById(new String(eStr + elId)).innerHTML = "E-mail";
+					document.getElementById(new String(fStr + "Val" + elId)).innerHTML = fName;
+					document.getElementById(new String(lStr + "Val" + elId)).innerHTML = lName;
+					document.getElementById(new String(pStr + "Val" + elId)).innerHTML = phoneNum;
+					document.getElementById(new String(eStr + "Val" + elId)).innerHTML = eMail;
+					document.getElementById(new String(eButStr + elId)).removeAttribute("hidden");
+					document.getElementById(new String(dButStr + elId)).removeAttribute("hidden");
+					if(elId == 5) break;
+				}
+
+			}
+		};
+		xhr.send(jsonPayload); //FIXME? no longer in a "POST"
+	}
 	catch(err)
-	{}
+	{
+		console.log(err);
+		// document.getElementById("loginResult").innerHTML = err.message;
+	}
 }
 
 function doCreate()

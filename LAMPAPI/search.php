@@ -6,8 +6,6 @@
 
 	$searchResults = "";
 	$searchCount = 0;
-	$userId = $inData["userId"];
-	$searchTerm = $inData["search"];
 	$debugStr = "XXXXXX";
 
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "contact_list_app_db");
@@ -24,6 +22,9 @@
 		// $stmt->execute();
 		// $result = $stmt->get_result();
 		
+		$userId = $inData["userId"];
+		$searchTerm = $inData["search"];
+
 		$stmt = $conn->prepare("select * from contact_list where user_id=?");	//FIXME attempted to mimic populate_landingpage, remove if desired and uncomment the lines directly above (18-21)
 		$stmt->bind_param("i", $userId);										//FIXME attempted to mimic populate_landingpage, remove if desired and uncomment the lines directly above (18-21)
 		$stmt->execute();														//FIXME attempted to mimic populate_landingpage, remove if desired and uncomment the lines directly above (18-21)

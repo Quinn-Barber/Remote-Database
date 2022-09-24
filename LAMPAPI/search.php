@@ -33,10 +33,10 @@
 
 		while($row = $result->fetch_assoc())
 		{
-			// if((compareStrings($searchTerm, $row["firstname"], $row["lastname"], $row["phone_number"], $row["email"])==false)) //FIXME syntax?
-			// {
-			// 	continue;
-			// }
+			if(compareStrings($searchTerm, $row["firstname"], $row["lastname"], $row["phone_number"], $row["email"]) == false) //FIXME syntax?
+			{
+				continue;
+			}
 			if($searchCount > 0)	//TODO: Also compare to other fields : compareStrings($searchTerm, $row["firstname"])
 			{
 				$searchResults .= ",";
@@ -89,7 +89,7 @@
 		$goal = strtolower($submit);
 		$first = strtolower($storedFirst);
 		$last = strtolower($storedLast);
-		// phone number should be fine
+		//phone number should be fine?
 		$mail = strtolower($storedEmail);
 
 		if(strpos($goal, $first))
@@ -100,7 +100,7 @@
 		{
 			return true;
 		}
-		elseif(strpos($goal, $storedLast))
+		elseif(strpos($goal, $storedPhone))
 		{
 			return true;
 		}

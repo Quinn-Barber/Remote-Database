@@ -43,7 +43,8 @@
 
 			$searchCount++;
 			
-			$searchResults .= '"' . $row["firstname"] .','. $row["lastname"] .','. $row["phone_number"] . ','. $row["email"] . '"';	//CHANGED: to a more complete version from landingpage.html
+			// $searchResults .= '"' . $row["firstname"] .','. $row["lastname"] .','. $row["phone_number"] . ','. $row["email"] . '"';	//CHANGED: to a more complete version from landingpage.html
+			$searchResults .= '"' . "debugtest" .','. $row["lastname"] .','. $row["phone_number"] . ','. $row["email"] . '"';	//debug version of the above line
 			
 		}
 		

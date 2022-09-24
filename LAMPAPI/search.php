@@ -22,9 +22,11 @@
 		$stmt->execute();
 
 		$result = $stmt->get_result();
-		
+		returnWithInfo($result);	//intent:debugging
+
 		while($row = $result->fetch_assoc())
 		{
+			returnWithInfo($row);
 			// echo "searchCount is $searchCount, Comparing search: $searchTerm, to first name: $row["firstname"]";
 			if( $searchCount > 0 )
 			{

@@ -34,7 +34,7 @@
 
 		while($row = $result->fetch_assoc())
 		{
-			if(!compareStrings($searchTerm, $row["firstname"], $row["lastname"], $row["phone_number"], $row["email"]))		//debug: with if($searchCount % 2), this still builds a valid result skipping the odd array values
+			if(compareStrings($searchTerm, $row["firstname"], $row["lastname"], $row["phone_number"], $row["email"]))		//debug: with if($searchCount % 2), this still builds a valid result skipping the odd array values
 			{
 				$searchCount++;
 				continue;

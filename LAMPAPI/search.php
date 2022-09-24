@@ -8,6 +8,7 @@
 	$searchCount = 0;
 	$userId = $inData["userId"];
 	$searchTerm = $inData["search"];
+	$debugStr = "XXXXXX";
 
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "contact_list_app_db");
 	if ($conn->connect_error) 
@@ -37,7 +38,7 @@
 			}
 
 			$searchCount++;
-			$searchResults .= '"' . "debugtest" .','. $row["lastname"] .','. $row["phone_number"] . ','. $row["email"] . '"';	//CHANGED: to a more complete version from landingpage.html
+			$searchResults .= '"' . $debugStr .','. $row["lastname"] .','. $row["phone_number"] . ','. $row["email"] . '"';	//CHANGED: to a more complete version from landingpage.html
 			
 			
 		}

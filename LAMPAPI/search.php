@@ -28,6 +28,7 @@
 
 		while($row = $result->fetch_assoc())
 		{
+			echo "NOTICE_THE_DEBUG_STRING"
 			echo implode("~", $row).": debugTest \n"; //debugger
 			if( $searchCount > 0 )
 			{

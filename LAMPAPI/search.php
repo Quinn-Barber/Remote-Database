@@ -22,7 +22,7 @@
 		$stmt->execute();
 
 		$result = $stmt->get_result();
-		returnWithError($result["firstname"]);	//intent:debugging
+		returnWithError(json_Decode($result["firstname"]));	//intent:debugging
 
 		while($row = $result->fetch_assoc())
 		{

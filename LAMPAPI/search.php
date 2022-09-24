@@ -41,12 +41,12 @@
 
 			$searchCount++;
 
-			if(compareStrings($searchTerm, $row["firstname"], $row["lastname"], $row["phone_number"], $row["email"]) == false) //FIXME syntax?
+			if(compareStrings($searchTerm, $row["firstname"], $row["lastname"], $row["phone_number"], $row["email"])) //FIXME syntax?
 			{
-				continue;
+				$searchResults .= '"' . $row["firstname"] .','. $row["lastname"] .','. $row["phone_number"] . ','. $row["email"] . '"';	//CHANGED: to a more complete version from landingpage.html
+
 			}
 			
-			$searchResults .= '"' . $row["firstname"] .','. $row["lastname"] .','. $row["phone_number"] . ','. $row["email"] . '"';	//CHANGED: to a more complete version from landingpage.html
 			
 			
 		}

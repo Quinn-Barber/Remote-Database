@@ -18,7 +18,6 @@
 		$stmt = $conn->prepare("SELECT * FROM contact_list WHERE firstname LIKE ? AND user_id = ?");
 		
 		$searchTerm = $inData["search"];			//CHANGED: was $inData["search"];
-		echo $searchTerm.": debugTest \n"; //debugger
 		$stmt->bind_param("si", $searchTerm, $inData["userId"]);	//	$colorName changed to $searchTerm from prototype
 		$stmt->execute();
 		

@@ -47,7 +47,7 @@
 				
 			// }
 			
-			// if($searchCount > 3) break;
+			if($searchCount > 3) break;
 			
 		}
 		

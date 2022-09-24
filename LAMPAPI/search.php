@@ -33,13 +33,17 @@
 
 		while($row = $result->fetch_assoc())
 		{
+			if((compareStrings($searchTerm, $row["firstname"], $row["lastname"], $row["phone_number"], $row["email"])!=true)) //FIXME syntax?
+			{
+				continue;
+			}
 			if($searchCount > 0)	//TODO: Also compare to other fields : compareStrings($searchTerm, $row["firstname"])
 			{
 				$searchResults .= ",";
 			}
 
 			$searchCount++;
-			$searchResults .= '"' . $debugStr .','. $row["lastname"] .','. $row["phone_number"] . ','. $row["email"] . '"';	//CHANGED: to a more complete version from landingpage.html
+			$searchResults .= '"' . $row["firstname"] .','. $row["lastname"] .','. $row["phone_number"] . ','. $row["email"] . '"';	//CHANGED: to a more complete version from landingpage.html
 			
 			
 		}
@@ -80,11 +84,27 @@
 		sendResultInfoAsJson( $retValue );
 	}
 
-	function compareStrings($submit, $stored)
+	function compareStrings($submit, $storedFirst, $storedLast, $storedPhone, $storedEmail)
 	{
-		$first = strtolower($submit);
-		$second = strtolower($stored);
-		if(strpos($first, $second))
+		$goal = strtolower($submit);
+		$first = strtolower($storedFirst);
+		$last = strtolower($storedLast);
+		// phone number should be fine
+		$mail = strtolower($storedEmail);
+
+		if(strpos($goal, $first))
+		{
+			return true;
+		}
+		elseif(strpos($goal, $last))
+		{
+			return true;
+		}
+		elseif(strpos($goal, $storedLast))
+		{
+			return true;
+		}
+		elseif(strpos($goal, $mail))
 		{
 			return true;
 		}

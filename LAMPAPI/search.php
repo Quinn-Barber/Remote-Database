@@ -33,7 +33,8 @@
 
 		while($row = $result->fetch_assoc())
 		{
-			
+			if($searchCount % 2) continue;
+
 			if($searchCount > 0)	//TODO: Also compare to other fields : compareStrings($searchTerm, $row["firstname"])
 			{
 				$searchResults .= ",";
@@ -47,7 +48,7 @@
 				
 			// }
 			
-			if($searchCount % 2) continue;
+			
 			
 		}
 		

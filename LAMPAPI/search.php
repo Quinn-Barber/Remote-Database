@@ -22,11 +22,11 @@
 		$stmt->execute();
 
 		$result = $stmt->get_result();
-		debug_to_console($result);	//intent:debugging
+		
 
 		while($row = $result->fetch_assoc())
 		{
-			debug_to_console($row);
+			echo $row['firstname']."<br>"; //debugger
 			// echo "searchCount is $searchCount, Comparing search: $searchTerm, to first name: $row["firstname"]";
 			if( $searchCount > 0 )
 			{
@@ -77,12 +77,13 @@
 		sendResultInfoAsJson( $retValue );
 	}
 
-	function debug_to_console($data) {
-		$output = $data;
-		if (is_array($output))
-			$output = implode(',', $output);
+	// function debug_to_console($data) {
+	// 	$output = $data;
+	// 	if (is_array($output))
+	// 		$output = implode(',', $output);
 	
-		echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
-	}
+	// 	// echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+	// 	while()
+	// }
 	
 ?>

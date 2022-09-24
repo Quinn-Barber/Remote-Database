@@ -6,6 +6,7 @@
 
 	$searchResults = "";
 	$searchCount = 0;
+	$matchcount = 0
 	$debugStr = "XXXXXX";
 
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "contact_list_app_db");
@@ -33,7 +34,7 @@
 
 		while($row = $result->fetch_assoc())
 		{
-			if(1)		//debug: with if($searchCount % 2), this still builds a valid result skipping the odd array values
+			if(!compareStrings($searchTerm, $row["firstname"], $row["lastname"], $row["phone_number"], $row["email"]))		//debug: with if($searchCount % 2), this still builds a valid result skipping the odd array values
 			{
 				$searchCount++;
 				continue;
@@ -45,6 +46,7 @@
 			}
 
 			$searchCount++;
+			$matchCount++;
 				$searchResults .= '"' . $row["firstname"] .','. $row["lastname"] .','. $row["phone_number"] . ','. $row["email"] . '"';	//CHANGED: to a more complete version from landingpage.html
 
 			// if(compareStrings($searchTerm, $row["firstname"], $row["lastname"], $row["phone_number"], $row["email"])) //FIXME syntax?
@@ -56,7 +58,7 @@
 			
 		}
 		
-		if( $searchCount == 0 )
+		if( $matchCount == 0 )
 		{
 			returnWithError( "No Records Found" );
 		}

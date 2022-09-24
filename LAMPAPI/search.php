@@ -15,26 +15,30 @@
 	else
 	{
 		// check to see if information in contact_list also has the same firstname from the cookie
-		$stmt = $conn->prepare("SELECT * FROM contact_list WHERE firstname LIKE ? AND user_id = ?");
-		
+		// $stmt = $conn->prepare("SELECT * FROM contact_list WHERE firstname LIKE ? AND user_id = ?");
 		$searchTerm = $inData["search"];			//CHANGED: was $inData["search"];
-		$stmt->bind_param("si", $searchTerm, $inData["userId"]);	//	$colorName changed to $searchTerm from prototype
+		// $stmt->bind_param("si", $searchTerm, $inData["userId"]);	//	$colorName changed to $searchTerm from prototype
+		// $stmt->execute();
+		// $result = $stmt->get_result();
+		
+		$stmt = $conn->prepare("select * from contact_list where user_id=?");
+		$stmt->bind_param("i", $userId);
 		$stmt->execute();
-		
-
-
 		$result = $stmt->get_result();
-		
+
 
 		while($row = $result->fetch_assoc())
 		{
-			echo "NOTICE_THE_DEBUG_STRING";
-			echo implode("~", $row).": debugTest \n"; //debugger
-			if( $searchCount > 0 )
+			if(compareStrings($searchTerm, $row["firstname"]))	//TODO: Also compare to other fields
 			{
-				
+				if($searchCount > 0)
+				{				
 				$searchResults .= ",";
-				
+				}	
+			}
+			else
+			{
+				continue;
 			}
 
 			$searchCount++;
@@ -79,13 +83,19 @@
 		sendResultInfoAsJson( $retValue );
 	}
 
-	// function debug_to_console($data) {
-	// 	$output = $data;
-	// 	if (is_array($output))
-	// 		$output = implode(',', $output);
-	
-	// 	// echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
-	// 	while()
-	// }
+	function compareStrings($submit, $stored)
+	{
+		$first = strtolower($submit);
+		$second = strtolower($stored);
+		if(strpos($stored, $submit))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+
+	}
 	
 ?>

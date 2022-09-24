@@ -187,7 +187,7 @@ function doSearch()
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
-	try			//CHANGED: try/catch currently copied exactly from fetchContacts(). If I am right, the changes I made in search.php mean this will only populate the results with matching firstnames.
+	try			
 	{
 		xhr.onreadystatechange = function() 
 		{

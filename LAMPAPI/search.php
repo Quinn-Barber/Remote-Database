@@ -24,12 +24,11 @@
 
 
 		$result = $stmt->get_result();
-		echo implode("~", $result).": debugTest \n"; //debugger
+		
 
 		while($row = $result->fetch_assoc())
 		{
-			// echo $row['firstname']."<br>"; //debugger
-			// echo "searchCount is $searchCount, Comparing search: $searchTerm, to first name: $row["firstname"]";
+			echo implode("~", $row).": debugTest \n"; //debugger
 			if( $searchCount > 0 )
 			{
 				

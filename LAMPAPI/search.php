@@ -87,7 +87,7 @@
 	{
 		$first = strtolower($submit);
 		$second = strtolower($stored);
-		if(strpos($stored, $submit))
+		if(strpos($first, $second))
 		{
 			return true;
 		}

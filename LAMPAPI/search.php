@@ -7,6 +7,7 @@
 	$searchResults = "";
 	$searchCount = 0;
 	$userId = $inData["userId"];
+	$searchTerm = $inData["search"];
 
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "contact_list_app_db");
 	if ($conn->connect_error) 
@@ -17,7 +18,7 @@
 	{
 		// check to see if information in contact_list also has the same firstname from the cookie
 		// $stmt = $conn->prepare("SELECT * FROM contact_list WHERE firstname LIKE ? AND user_id = ?");
-		$searchTerm = $inData["search"];			//CHANGED: was $inData["search"];
+		// $searchTerm = $inData["search"];			//CHANGED: was $inData["query"];
 		// $stmt->bind_param("si", $searchTerm, $inData["userId"]);	//	$colorName changed to $searchTerm from prototype
 		// $stmt->execute();
 		// $result = $stmt->get_result();
@@ -30,20 +31,13 @@
 
 		while($row = $result->fetch_assoc())
 		{
-			if(compareStrings($searchTerm, $row["firstname"]))	//TODO: Also compare to other fields
+			if($searchCount > 0)	//TODO: Also compare to other fields : compareStrings($searchTerm, $row["firstname"])
 			{
-				if($searchCount > 0)
-				{				
 				$searchResults .= ",";
-				}	
-			}
-			else
-			{
-				continue;
 			}
 
 			$searchCount++;
-			$searchResults .= '"' . $row["firstname"] .','. $row["lastname"] .','. $row["phone_number"] . ','. $row["email"] . '"';	//CHANGED: to a more complete version from landingpage.html
+			$searchResults .= '"' . "debugtest" .','. $row["lastname"] .','. $row["phone_number"] . ','. $row["email"] . '"';	//CHANGED: to a more complete version from landingpage.html
 			
 			
 		}

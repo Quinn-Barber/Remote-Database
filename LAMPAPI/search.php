@@ -33,7 +33,7 @@
 
 		while($row = $result->fetch_assoc())
 		{
-			if(compareStrings($searchTerm, $row["firstname"], $row["lastname"], $row["phone_number"], $row["email"]) == false) //FIXME syntax?
+			if(compareStrings($searchTerm, $row["firstname"]/*, $row["lastname"], $row["phone_number"], $row["email"]*/) == false) //FIXME syntax?
 			{
 				continue;
 			}
@@ -84,30 +84,30 @@
 		sendResultInfoAsJson( $retValue );
 	}
 
-	function compareStrings($submit, $storedFirst, $storedLast, $storedPhone, $storedEmail)
+	function compareStrings($submit, $storedFirst/*, $storedLast, $storedPhone, $storedEmail*/)
 	{
 		$goal = strtolower($submit);
 		$first = strtolower($storedFirst);
-		$last = strtolower($storedLast);
-		//phone number should be fine?
-		$mail = strtolower($storedEmail);
+		// $last = strtolower($storedLast);
+		// //phone number should be fine?
+		// $mail = strtolower($storedEmail);
 
 		if(strpos($goal, $first))
 		{
 			return true;
 		}
-		elseif(strpos($goal, $last))
-		{
-			return true;
-		}
-		elseif(strpos($goal, $storedPhone))
-		{
-			return true;
-		}
-		elseif(strpos($goal, $mail))
-		{
-			return true;
-		}
+		// elseif(strpos($goal, $last))
+		// {
+		// 	return true;
+		// }
+		// elseif(strpos($goal, $storedPhone))
+		// {
+		// 	return true;
+		// }
+		// elseif(strpos($goal, $mail))
+		// {
+		// 	return true;
+		// }
 		else
 		{
 			return false;

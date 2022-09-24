@@ -21,10 +21,10 @@
 		// $stmt->execute();
 		// $result = $stmt->get_result();
 		
-		$stmt = $conn->prepare("select * from contact_list where user_id=?");
-		$stmt->bind_param("i", $userId);
-		$stmt->execute();
-		$result = $stmt->get_result();
+		$stmt = $conn->prepare("select * from contact_list where user_id=?");	//FIXME attempted to mimic populate_landingpage, remove if desired and uncomment the lines directly above (18-21)
+		$stmt->bind_param("i", $userId);										//FIXME attempted to mimic populate_landingpage, remove if desired and uncomment the lines directly above (18-21)
+		$stmt->execute();														//FIXME attempted to mimic populate_landingpage, remove if desired and uncomment the lines directly above (18-21)
+		$result = $stmt->get_result();											//FIXME attempted to mimic populate_landingpage, remove if desired and uncomment the lines directly above (18-21)
 
 
 		while($row = $result->fetch_assoc())

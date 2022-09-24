@@ -33,7 +33,7 @@
 
 		while($row = $result->fetch_assoc())
 		{
-			if($searchCount % 2)
+			if(1)		//debug: with if($searchCount % 2), this still builds a valid result skipping the odd array values
 			{
 				$searchCount++;
 				continue;

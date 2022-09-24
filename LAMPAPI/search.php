@@ -18,15 +18,17 @@
 		$stmt = $conn->prepare("SELECT * FROM contact_list WHERE firstname LIKE ? AND user_id = ?");
 		
 		$searchTerm = "%" . $inData["search"] . "%";			//CHANGED: was $inData["search"];
+		echo $searchTerm."debugTest<br>"; //debugger
 		$stmt->bind_param("si", $searchTerm, $inData["userId"]);	//	$colorName changed to $searchTerm from prototype
 		$stmt->execute();
+
 
 		$result = $stmt->get_result();
 		
 
 		while($row = $result->fetch_assoc())
 		{
-			echo $row['firstname']."<br>"; //debugger
+			// echo $row['firstname']."<br>"; //debugger
 			// echo "searchCount is $searchCount, Comparing search: $searchTerm, to first name: $row["firstname"]";
 			if( $searchCount > 0 )
 			{

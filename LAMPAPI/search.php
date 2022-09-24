@@ -33,10 +33,10 @@
 
 		while($row = $result->fetch_assoc())
 		{
-			if((compareStrings($searchTerm, $row["firstname"], $row["lastname"], $row["phone_number"], $row["email"])!=true)) //FIXME syntax?
-			{
-				continue;
-			}
+			// if((compareStrings($searchTerm, $row["firstname"], $row["lastname"], $row["phone_number"], $row["email"])==false)) //FIXME syntax?
+			// {
+			// 	continue;
+			// }
 			if($searchCount > 0)	//TODO: Also compare to other fields : compareStrings($searchTerm, $row["firstname"])
 			{
 				$searchResults .= ",";

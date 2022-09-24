@@ -6,7 +6,7 @@
 
 	$searchResults = "";
 	$searchCount = 0;
-	$matchcount = 0
+	$matchCount = 0
 	$debugStr = "XXXXXX";
 
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "contact_list_app_db");

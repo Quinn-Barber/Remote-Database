@@ -199,12 +199,11 @@ function doSearch()
 				console.log("ABOUT TO ITERATE THROUGH RESULTS:");
 				console.log(JSON.stringify(jsonObject.results));
  				document.getElementById("pageNum").innerHTML = "Page 1/" + (Math.floor((jsonObject.results.length)/6)+1);
-				 console.log("result length is calculated as: " + jsonObject.results.length);
-
-				let matchCount = 0;	//counts only valid matches
+				
+				let matchCount = 0	//counts only valid matches
 				for(let i = 0; i < jsonObject.results.length; i++)
 				{
-					var elId = matchCount % 6;
+					var elId = i % 6;
 					var resultsArr = jsonObject.results[i].split(',');
 					let fName = resultsArr[0];
 					let lName = resultsArr[1];
@@ -216,10 +215,6 @@ function doSearch()
 					let eStr = "eMail";
 					let eButStr = "edit";
 					let dButStr = "delete";
-					// if((tmp.search != fStr) && (tmp.search != lStr)&&(tmp.search != pStr)&&(tmp.search != eStr)) //FIXME this only does full word matches I believe
-					// {
-					// 	continue;
-					// }
 					document.getElementById(new String(fStr + elId)).innerHTML = "First Name";
 					document.getElementById(new String(lStr + elId)).innerHTML = "Last Name";
 					document.getElementById(new String(pStr + elId)).innerHTML = "Phone Number";
@@ -231,8 +226,6 @@ function doSearch()
 					document.getElementById(new String(eButStr + elId)).removeAttribute("hidden");
 					document.getElementById(new String(dButStr + elId)).removeAttribute("hidden");
 					if(elId == 5) break;
-					resultcount++;
-					
 				}
 
 			}

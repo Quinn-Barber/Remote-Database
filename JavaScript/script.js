@@ -220,7 +220,7 @@ function doSearch()
 					let eStr = "eMail";
 					let eButStr = "edit";
 					let dButStr = "delete";
-					if(i<resultCount)
+					if(i<resultCount+1)
 					{
 						document.getElementById(new String(fStr + elId)).innerHTML = "First Name";
 						document.getElementById(new String(lStr + elId)).innerHTML = "Last Name";

@@ -205,7 +205,7 @@ function doSearch()
 				let fillerCount = Math.ceil((jsonObject.results.length)/6)*6;
 				console.log("There are " + jsonObject.results.length + " results, meaning there should be " + fillerCount + " filled or empty spaces.");
 				
-				if(resultCount == 0) console.log("CONFIRMED 0 RESULTS, could blank from here");
+				if(resultCount == -1) console.log("CONFIRMED 0 RESULTS, could blank from here");
 
 				for(let i = 0; i < fillerCount; i++)
 				{

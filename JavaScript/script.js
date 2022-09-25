@@ -135,6 +135,9 @@ function editContact(id)
 
 function deleteContact(id)
 {
+	if(confirm("Press OK to Delete Contact") == false){
+		return;
+	}
 	readCookie();
 	let idx = id;
 	var res = idx.replace(/\D/g, "");

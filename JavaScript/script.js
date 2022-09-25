@@ -209,14 +209,11 @@ function doSearch()
 				{
 					console.log("i = " + i + ", fillerCount = " + fillerCount + "  resultCount = "+ resultCount);
 					var elId = i % 6;
-					if(i<resultCount+1)
-						{
-						var resultsArr = jsonObject.results[i].split(',');
-						let fName = resultsArr[0];
-						let lName = resultsArr[1];
-						let phoneNum = resultsArr[2];
-						let eMail = resultsArr[3];
-					}
+					var resultsArr = jsonObject.results[i].split(',');
+					let fName = resultsArr[0];
+					let lName = resultsArr[1];
+					let phoneNum = resultsArr[2];
+					let eMail = resultsArr[3];
 					let fStr = "fName";
 					let lStr = "lName";
 					let pStr = "phoneNum";

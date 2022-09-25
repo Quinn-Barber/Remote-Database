@@ -196,6 +196,7 @@ function doSearch()
 				console.log(xhr.responseText);
 				let jsonObject = JSON.parse( xhr.responseText );
 				console.log(jsonObject);
+				console.log("ABOUT TO ITERATE THROUGH RESULTS:");
 				console.log(JSON.stringify(jsonObject.results));
  				document.getElementById("pageNum").innerHTML = "Page 1/" + (Math.floor((jsonObject.results.length)/6)+1);
 				

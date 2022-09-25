@@ -104,19 +104,19 @@
 		$mail = strtolower($storedEmail);
 
 
-		if(strpos($goal, $first) !== $noMatch)
+		if(strpos($first, $goal) !== $noMatch)
 		{
 			return true;
 		}
-		elseif(strpos($goal, $last) !== $noMatch)
+		elseif(strpos($last, $goal) !== $noMatch)
 		{
 			return true;
 		}
-		elseif(strpos($goal, $phone) !== $noMatch)
+		elseif(strpos($phone, $goal) !== $noMatch)
 		{
 			return true;
 		}
-		elseif(strpos($goal, $mail) !== $noMatch)
+		elseif(strpos($mail, $goal) !== $noMatch)
 		{
 			return true;
 		}

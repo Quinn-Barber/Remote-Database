@@ -40,7 +40,7 @@
 				continue;
 			}
 
-			if($searchCount > 0)	//TODO: Also compare to other fields : compareStrings($searchTerm, $row["firstname"])
+			if($matchCount > 0)	//TODO: Also compare to other fields : compareStrings($searchTerm, $row["firstname"])
 			{
 				$searchResults .= ",";
 			}

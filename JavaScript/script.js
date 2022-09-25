@@ -522,8 +522,15 @@ function doLogin()
 				userId = jsonObject.id;
 		
 				if(userId < 1)
-				{		
-					// document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
+				{
+					document.getElementById("loginResult").innerHTML = "Username/Password Combination Incorrect";
+					document.getElementById("loginName").style.backgroundColor = "lightcoral";
+					document.getElementById("loginName").style.outlineColor = "#000";
+					document.getElementById("loginName").style.outline = "3px solid";
+
+					document.getElementById("loginPassword").style.backgroundColor = "lightcoral";
+					document.getElementById("loginPassword").style.outlineColor = "#000";
+					document.getElementById("loginPassword").style.outline = "3px solid";
 					console.log("login credentials invalid");
 					return;
 				}

@@ -222,6 +222,7 @@ function doSearch()
 					let dButStr = "delete";
 					if(i<resultCount+1)
 					{
+						console.log("Filling elId = " + elId);
 						document.getElementById(new String(fStr + elId)).innerHTML = "First Name";
 						document.getElementById(new String(lStr + elId)).innerHTML = "Last Name";
 						document.getElementById(new String(pStr + elId)).innerHTML = "Phone Number";
@@ -235,7 +236,7 @@ function doSearch()
 					}
 					else
 					{
-						console.log("Should be trying to blank out elements now");
+						console.log("Blanking elId = " + elId);
 						document.getElementById(new String(fStr + elId)).innerHTML = blank;
 						document.getElementById(new String(lStr + elId)).innerHTML = blank;
 						document.getElementById(new String(pStr + elId)).innerHTML = blank;
@@ -247,7 +248,7 @@ function doSearch()
 						document.getElementById(new String(eButStr + elId)).hidden=true;
 						document.getElementById(new String(dButStr + elId)).hidden=true;
 					}
-					console.log("elId = " + elId);
+					
 					if(elId == 5) break;
 				}
 

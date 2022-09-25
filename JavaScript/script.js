@@ -201,7 +201,11 @@ function doSearch()
  				document.getElementById("pageNum").innerHTML = "Page 1/" + (Math.floor((jsonObject.results.length)/6)+1);
 				
 				let matchCount = 0	//counts only valid matches
-				for(let i = 0; i < jsonObject.results.length; i++)
+
+				let resultCount = jsonObject.results.length;
+				let fillerCount = Math.ceil((jsonObject.results.length)/6)*6;
+				console.log("There are " + jsonObject.results.length + " results, meaning there should be " + fillerCount + " filled or empty spaces.");
+				for(let i = 0; i < resultCount; i++)
 				{
 					var elId = i % 6;
 					var resultsArr = jsonObject.results[i].split(',');

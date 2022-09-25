@@ -235,6 +235,7 @@ function doSearch()
 					}
 					else
 					{
+						console.log("Should be trying to blank out elements now");
 						document.getElementById(new String(fStr + elId)).innerHTML = blank;
 						document.getElementById(new String(lStr + elId)).innerHTML = blank;
 						document.getElementById(new String(pStr + elId)).innerHTML = blank;

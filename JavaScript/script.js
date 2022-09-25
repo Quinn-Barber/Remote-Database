@@ -215,10 +215,10 @@ function doSearch()
 					let eStr = "eMail";
 					let eButStr = "edit";
 					let dButStr = "delete";
-					if((tmp.search != fStr) && (tmp.search != lStr)&&(tmp.search != pStr)&&(tmp.search != eStr)) //FIXME this only does full word matches I believe
-					{
-						continue;
-					}
+					// if((tmp.search != fStr) && (tmp.search != lStr)&&(tmp.search != pStr)&&(tmp.search != eStr)) //FIXME this only does full word matches I believe
+					// {
+					// 	continue;
+					// }
 					document.getElementById(new String(fStr + elId)).innerHTML = "First Name";
 					document.getElementById(new String(lStr + elId)).innerHTML = "Last Name";
 					document.getElementById(new String(pStr + elId)).innerHTML = "Phone Number";

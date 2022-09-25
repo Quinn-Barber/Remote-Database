@@ -34,7 +34,7 @@
 
 		while($row = $result->fetch_assoc())
 		{
-			if(compareStrings($searchTerm, $row["firstname"], $row["lastname"], $row["phone_number"], $row["email"]) === false)		//debug: with if($searchCount % 2), this still builds a valid result skipping the odd array values
+			if(compareStrings($searchTerm, $false, $row["firstname"], $row["lastname"], $row["phone_number"], $row["email"]) === false)		//debug: with if($searchCount % 2), this still builds a valid result skipping the odd array values
 			{
 				$searchCount++;
 				continue;
@@ -93,7 +93,7 @@
 		sendResultInfoAsJson( $retValue );
 	}
 
-	function compareStrings($submit, $storedFirst, $storedLast, $storedPhone, $storedEmail)
+	function compareStrings($submit, $noMatch, $storedFirst, $storedLast, $storedPhone, $storedEmail)
 	{
 		$goal = strtolower($submit);
 		$first = strtolower($storedFirst);
@@ -101,19 +101,20 @@
 		$phone = $storedPhone; 		//phone number should be fine?
 		$mail = strtolower($storedEmail);
 
-		if(strpos($goal, $first) !== $false)
+
+		if(strpos($goal, $first) !== $noMatch)
 		{
 			return true;
 		}
-		elseif(strpos($goal, $last) !== $false)
+		elseif(strpos($goal, $last) !== $noMatch)
 		{
 			return true;
 		}
-		elseif(strpos($goal, $phone) !== $false)
+		elseif(strpos($goal, $phone) !== $noMatch)
 		{
 			return true;
 		}
-		elseif(strpos($goal, $mail) !== $false)
+		elseif(strpos($goal, $mail) !== $noMatch)
 		{
 			return true;
 		}

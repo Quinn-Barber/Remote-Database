@@ -219,7 +219,7 @@ function doSearch()
 					// }
 					// else
 					// {
-						console.log("Can this even be printed?:  " + jsonObject.results[i]);
+						console.log("Can this|" + typeof(jsonObject.results[i]) +  "even be printed?:  " + jsonObject.results[i]);
 						var resultsArr = jsonObject.results[i].split(',');
 						let fName = resultsArr[0];
 						let lName = resultsArr[1];

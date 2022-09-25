@@ -244,8 +244,8 @@ function doSearch()
 						document.getElementById(new String(lStr + "Val" + elId)).innerHTML = blank;
 						document.getElementById(new String(pStr + "Val" + elId)).innerHTML = blank;
 						document.getElementById(new String(eStr + "Val" + elId)).innerHTML = blank;
-						document.getElementById(new String(eButStr + elId)).hasAttribute("hidden");
-						document.getElementById(new String(dButStr + elId)).hasAttribute("hidden");
+						document.getElementById(new String(eButStr + elId)).hidden=true;
+						document.getElementById(new String(dButStr + elId)).hidden=true;
 					}
 					if(elId == 5) break;
 				}

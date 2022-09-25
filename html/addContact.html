@@ -5,49 +5,66 @@
     <script src="../JavaScript/script.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../style/style_register.css" rel="stylesheet" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:100"
-      rel="stylesheet"
-    />
+    <link href="../style/style_contact.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
     <title>Add Contact</title>
   </head>
   <body>
-    <div class="loginDiv">
-      <div class="login_header">
-        <span id= "status" class="inner-title">Add Contact</span>
+
+    <div class="contactDiv">
+      <div class="contactHeader">
+        <span 
+          id= "status" 
+          class="inner-title"
+        >Add Contact</span>
       </div>
-      <div class="login_body">
+      
+      <div class="contactBody">
+
         <p class="text1">First Name:</p>
-        <div class="userName">
-          <input type="text" id="fname" class="loginName" placeholder="First Name" /><br />
+        <div class="fName">
+          <input type="text"
+            id="fname"
+            class="contactText" 
+            placeholder="First Name (ex: Spongebob)" 
+        /><br />
         </div>
+
         <p class="text1">Last Name:</p>
-        <div class="passWord">
+        <div class="lName">
           <input
             id="lname"
             type="text"
-            class="loginPassword"
-            placeholder="Last Name"
-          /><br />
+            class="contactText"
+            placeholder="Last Name (ex: Squarepants)"
+        /><br />
         </div>
-        <p class="text1">Phone number:</p>
-        <div class="passWord">
+
+        <p class="text1">Phone Number:</p>
+        <div class="pNumber">
           <input
             type="number"
             id="pnumber"
-            class="loginPassword"
-            placeholder="Phone number"
-          /><br />
+            name="pnumber"
+            class="contactText"
+            placeholder="Phone Number (ex: 123-456-7890)"
+        /><br />
         </div>
-        <p class="text1">Email:</p>
-        <div class="passWord">
-          <input type="email" id="email" class="loginPassword" placeholder="Email" /><br />
+        <p class="text1">E-mail:</p>
+        <div class="eMail">
+          <input type="email" 
+          id="email" 
+          class="contactText" 
+          placeholder="E-mail (ex: spongepants@gmail.com)" 
+        /><br />
         </div>
 
         <button
           type="button"
-          id="loginButton"
+          id="addButton"
           class="buttons"
           onclick="addContact();"
         >

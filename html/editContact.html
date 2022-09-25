@@ -6,7 +6,7 @@
     <body onload="editContact_populate();"></body> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../style/style_register.css" rel="stylesheet" />
+    <link href="../style/style_contact.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:100"
       rel="stylesheet"
@@ -14,36 +14,50 @@
     <title>Edit Contact</title>
   </head>
   <body>
-    <div class="loginDiv">
-      <div class="login_header">
+    <div class="contactDiv">
+      <div class="contactHeader">
         <span id= "status" class="inner-title">Edit Contact</span>
       </div>
-      <div class="login_body">
+      <div class="contactBody">
+
         <p class="text1">First Name:</p>
-        <div class="userName">
-          <input type="text" id="fname" class="loginName" placeholder="First Name" /><br />
+        <div class="fName">
+          <input 
+          type="text" 
+          id="fname" 
+          class="contactText" 
+          placeholder="First Name (ex: Spongebob)" 
+          /><br />
         </div>
+
         <p class="text1">Last Name:</p>
-        <div class="passWord">
+        <div class="lName">
           <input
             id="lname"
             type="text"
-            class="loginPassword"
-            placeholder="Last Name"
+            class="contactText"
+            placeholder="Last Name (ex: Squarepants)"
           /><br />
         </div>
+
         <p class="text1">Phone number:</p>
-        <div class="passWord">
+        <div class="pNumber">
           <input
             type="number"
             id="pnumber"
-            class="loginPassword"
-            placeholder="Phone number"
+            class="contactText"
+            placeholder="Phone Number (ex: 123-456-7890)"
           /><br />
         </div>
+
         <p class="text1">Email:</p>
-        <div class="passWord">
-          <input type="email" id="email" class="loginPassword" placeholder="Email" /><br />
+        <div class="eMail">
+          <input 
+          type="email" 
+          id="email" 
+          class="contactText" 
+          placeholder="E-mail (ex: spongepants@gmail.com)" 
+          /><br />
         </div>
 
         <button

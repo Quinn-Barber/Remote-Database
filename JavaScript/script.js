@@ -205,55 +205,52 @@ function doSearch()
 				let resultCount = jsonObject.results.length-1;
 				let fillerCount = Math.ceil((jsonObject.results.length)/6)*6;
 				console.log("There are " + jsonObject.results.length + " results, meaning there should be " + fillerCount + " filled or empty spaces.");
-				
-				for(let j = 0 ; j <= fillerCount/6 ; j++ )
+				for(let i = 0; i < fillerCount; i++)
 				{
-					for(let i = 0; i < 6; i++)
+					console.log("i = " + i + ", fillerCount = " + fillerCount + "  resultCount = "+ resultCount);
+					var elId = i % 6;
+					var resultsArr = jsonObject.results[i].split(',');
+					let fName = resultsArr[0];
+					let lName = resultsArr[1];
+					let phoneNum = resultsArr[2];
+					let eMail = resultsArr[3];
+					let fStr = "fName";
+					let lStr = "lName";
+					let pStr = "phoneNum";
+					let eStr = "eMail";
+					let eButStr = "edit";
+					let dButStr = "delete";
+					if(i<resultCount+1)
 					{
-						console.log("i = " + i + ", j = " + j + ",  fillerCount = " + fillerCount + "  resultCount = "+ resultCount);
-						var elId = i;// var elId = i % 6;
-						var resultsArr = jsonObject.results[i].split(',');
-						let fName = resultsArr[0];
-						let lName = resultsArr[1];
-						let phoneNum = resultsArr[2];
-						let eMail = resultsArr[3];
-						let fStr = "fName";
-						let lStr = "lName";
-						let pStr = "phoneNum";
-						let eStr = "eMail";
-						let eButStr = "edit";
-						let dButStr = "delete";
-						if(i<resultCount+1)
-						{
-							document.getElementById(new String(fStr + (elId+(6*j)))).innerHTML = "First Name";
-							document.getElementById(new String(lStr + (elId+(6*j)))).innerHTML = "Last Name";
-							document.getElementById(new String(pStr + (elId+(6*j)))).innerHTML = "Phone Number";
-							document.getElementById(new String(eStr + (elId+(6*j)))).innerHTML = "E-mail";
-							document.getElementById(new String(fStr + "Val" + (elId+(6*j)))).innerHTML = fName;
-							document.getElementById(new String(lStr + "Val" + (elId+(6*j)))).innerHTML = lName;
-							document.getElementById(new String(pStr + "Val" + (elId+(6*j)))).innerHTML = phoneNum;
-							document.getElementById(new String(eStr + "Val" + (elId+(6*j)))).innerHTML = eMail;
-							document.getElementById(new String(eButStr + (elId+(6*j)))).removeAttribute("hidden");
-							document.getElementById(new String(dButStr + (elId+(6*j)))).removeAttribute("hidden");
-						}
-						else
-						{
-							console.log("Should be trying to blank out elements now");
-							document.getElementById(new String(fStr + (elId+(6*j)))).innerHTML = blank;
-							document.getElementById(new String(lStr + (elId+(6*j)))).innerHTML = blank;
-							document.getElementById(new String(pStr + (elId+(6*j)))).innerHTML = blank;
-							document.getElementById(new String(eStr + (elId+(6*j)))).innerHTML = blank;
-							document.getElementById(new String(fStr + "Val" + (elId+(6*j)))).innerHTML = blank;
-							document.getElementById(new String(lStr + "Val" + (elId+(6*j)))).innerHTML = blank;
-							document.getElementById(new String(pStr + "Val" + (elId+(6*j)))).innerHTML = blank;
-							document.getElementById(new String(eStr + "Val" + (elId+(6*j)))).innerHTML = blank;
-							document.getElementById(new String(eButStr + (elId+(6*j)))).hidden=true;
-							document.getElementById(new String(dButStr + (elId+(6*j)))).hidden=true;
-						}
-						console.log("elId = " + elId);
-						if(elId == 5) continue;
+						document.getElementById(new String(fStr + elId)).innerHTML = "First Name";
+						document.getElementById(new String(lStr + elId)).innerHTML = "Last Name";
+						document.getElementById(new String(pStr + elId)).innerHTML = "Phone Number";
+						document.getElementById(new String(eStr + elId)).innerHTML = "E-mail";
+						document.getElementById(new String(fStr + "Val" + elId)).innerHTML = fName;
+						document.getElementById(new String(lStr + "Val" + elId)).innerHTML = lName;
+						document.getElementById(new String(pStr + "Val" + elId)).innerHTML = phoneNum;
+						document.getElementById(new String(eStr + "Val" + elId)).innerHTML = eMail;
+						document.getElementById(new String(eButStr + elId)).removeAttribute("hidden");
+						document.getElementById(new String(dButStr + elId)).removeAttribute("hidden");
 					}
+					else
+					{
+						console.log("Should be trying to blank out elements now");
+						document.getElementById(new String(fStr + elId)).innerHTML = blank;
+						document.getElementById(new String(lStr + elId)).innerHTML = blank;
+						document.getElementById(new String(pStr + elId)).innerHTML = blank;
+						document.getElementById(new String(eStr + elId)).innerHTML = blank;
+						document.getElementById(new String(fStr + "Val" + elId)).innerHTML = blank;
+						document.getElementById(new String(lStr + "Val" + elId)).innerHTML = blank;
+						document.getElementById(new String(pStr + "Val" + elId)).innerHTML = blank;
+						document.getElementById(new String(eStr + "Val" + elId)).innerHTML = blank;
+						document.getElementById(new String(eButStr + elId)).hidden=true;
+						document.getElementById(new String(dButStr + elId)).hidden=true;
+					}
+					console.log("elId = " + elId);
+					if(elId == 5) break;
 				}
+
 			}
 		};
 		console.log("payload sent is "+ jsonPayload);

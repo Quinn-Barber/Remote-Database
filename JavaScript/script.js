@@ -205,7 +205,22 @@ function doSearch()
 				let fillerCount = Math.ceil((jsonObject.results.length)/6)*6;
 				console.log("There are " + jsonObject.results.length + " results, meaning there should be " + fillerCount + " filled or empty spaces.");
 				
-				if(resultCount == -1) console.log("CONFIRMED 0 RESULTS, could blank from here");
+				if(resultCount == -1)	//NO RESULTS
+				{
+					for(let k =0 ; k<=6 ; k++)
+					{
+						document.getElementById(new String(fStr + k)).innerHTML =  blank;
+						document.getElementById(new String(lStr + k)).innerHTML =  blank;
+						document.getElementById(new String(pStr + k)).innerHTML =  blank;
+						document.getElementById(new String(eStr + k)).innerHTML =  blank;
+						document.getElementById(new String(fStr + "Val" + k)).innerHTML =  blank;
+						document.getElementById(new String(lStr + "Val" + k)).innerHTML =  blank;
+						document.getElementById(new String(pStr + "Val" + k)).innerHTML =  blank;
+						document.getElementById(new String(eStr + "Val" + k)).innerHTML =  blank;
+						document.getElementById(new String(eButStr + k)).hidden=true;
+						document.getElementById(new String(dButStr + k)).hidden=true;
+					}
+				}
 
 				for(let i = 0; i < fillerCount; i++)
 				{

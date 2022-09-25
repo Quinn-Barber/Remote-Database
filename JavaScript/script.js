@@ -247,6 +247,7 @@ function doSearch()
 						document.getElementById(new String(eButStr + elId)).hidden=true;
 						document.getElementById(new String(dButStr + elId)).hidden=true;
 					}
+					console.log("elId = " + elId);
 					if(elId == 5) break;
 				}
 

@@ -406,7 +406,6 @@ button:hover {
   font-size: 30px;
   font-weight: bold;
   width: 360px;
-  height: 260px;
   border: 1px solid #192646;
   display: block;
   justify-content: center;
@@ -479,6 +478,7 @@ button:hover {
   margin-left: -130px;
   margin-top: -60px;
   font-family: 'Work Sans', sans-serif;
+  font-weight: bold;
 }
 
 .loginPassword {
@@ -497,15 +497,12 @@ button:hover {
   margin-left: -130px;
   margin-top: -60px;
   font-family: 'Work Sans', sans-serif;
+  font-weight: bold;
 }
 
 .logoutButton {
   width: 20%;
   margin-left: 40%;
-}
-
-.colorSearchResult {
-  display: none;
 }
 
 .text2 {
@@ -535,9 +532,15 @@ hr {
   color: #8b8b8b;
   margin-left: 10px;
   cursor: pointer;
-  /*z-index: 100;*/
 }
 
 .inner-title{
   font-family: 'Work Sans', sans-serif;
+}
+
+.loginResult{
+  color: lightcoral;
+  font-family: 'Work Sans', sans-serif;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+  font-size: 22px;
 }

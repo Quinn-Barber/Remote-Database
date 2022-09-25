@@ -70,6 +70,17 @@
         >
           Add
         </button>
+
+        <script>
+          var button = document.getElementById("addButton");
+          var textBox = document.getElementById("email");
+  
+          textBox.addEventListener("keyup", function(event){
+            if(event.keyCode == 13){
+              button.click();
+            }
+          });
+        </script>
       </div>
     </div>
     <div class="light x1"></div>

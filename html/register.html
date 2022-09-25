@@ -90,6 +90,16 @@
         >
           Register
         </button>
+        <script>
+          var button = document.getElementById("registerButton");
+          var textBox = document.getElementById("registerPhoneNumber");
+  
+          textBox.addEventListener("keyup", function(event){
+            if(event.keyCode == 13){
+              button.click();
+            }
+          });
+        </script>
         <div>
           <p class="text2">
             Already have an account?

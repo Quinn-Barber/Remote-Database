@@ -210,21 +210,25 @@ function doSearch()
 					console.log("i = " + i + ", fillerCount = " + fillerCount + "  resultCount = "+ resultCount);
 					var elId = i % 6;
 
-						if(typeof(jsonObject.results[i]) == "string")
+					let fName = "gets_replaced";
+					let lName = "gets_replaced";
+					let phoneNum = "gets_replaced";
+					let eMail = "gets_replaced";
+					if(typeof(jsonObject.results[i]) == "string")
 						{
 						console.log("Can this|" + typeof(jsonObject.results[i]) +  "| even be printed?:  " + jsonObject.results[i]);
 						var resultsArr = jsonObject.results[i].split(',');
-						let fName = resultsArr[0];
-						let lName = resultsArr[1];
-						let phoneNum = resultsArr[2];
-						let eMail = resultsArr[3];
+						fName = resultsArr[0];
+						lName = resultsArr[1];
+						phoneNum = resultsArr[2];
+						eMail = resultsArr[3];
 						}
 						else
 						{
-						let fName = "MAKE_EMPTY";
-						let lName = "MAKE_EMPTY";
-						let phoneNum = "MAKE_EMPTY";
-						let eMail = "MAKE_EMPTY";
+						fName = "MAKE_EMPTY";
+						lName = "MAKE_EMPTY";
+						phoneNum = "MAKE_EMPTY";
+						eMail = "MAKE_EMPTY";
 						}
 					let fStr = "fName";
 					let lStr = "lName";

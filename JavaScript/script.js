@@ -210,21 +210,22 @@ function doSearch()
 					console.log("i = " + i + ", fillerCount = " + fillerCount + "  resultCount = "+ resultCount);
 					var elId = i % 6;
 
-					if(jsonObject.results[i]==undefined)
-					{
-						let fName = blank;
-						let lName = blank;
-						let phoneNum = blank;
-						let eMail = blank;
-					}
-					else
-					{
+					// if(jsonObject.results[i]==undefined)
+					// {
+					// 	let fName = blank;
+					// 	let lName = blank;
+					// 	let phoneNum = blank;
+					// 	let eMail = blank;
+					// }
+					// else
+					// {
+						console.log("Can this even be printed?:  " + jsonObject.results[i]);
 						var resultsArr = jsonObject.results[i].split(',');
 						let fName = resultsArr[0];
 						let lName = resultsArr[1];
 						let phoneNum = resultsArr[2];
 						let eMail = resultsArr[3];
-					}
+					// }
 					let fStr = "fName";
 					let lStr = "lName";
 					let pStr = "phoneNum";

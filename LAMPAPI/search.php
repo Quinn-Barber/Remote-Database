@@ -7,6 +7,7 @@
 	$searchResults = "";
 	$searchCount = 0;
 	$debugStr = "XXXXXX";
+	$false = false;
 
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "contact_list_app_db");
 	if ($conn->connect_error) 
@@ -33,8 +34,7 @@
 
 		while($row = $result->fetch_assoc())
 		{
-			if($searchCount % 2)
-			if(1)		//debug: with if($searchCount % 2), this still builds a valid result skipping the odd array values
+			if(compareStrings($searchTerm, $row["firstname"], $row["lastname"], $row["phone_number"], $row["email"]) === false)		//debug: with if($searchCount % 2), this still builds a valid result skipping the odd array values
 			{
 				$searchCount++;
 				continue;
@@ -98,22 +98,22 @@
 		$goal = strtolower($submit);
 		$first = strtolower($storedFirst);
 		$last = strtolower($storedLast);
-		//phone number should be fine?
+		$phone = $storedPhone; 		//phone number should be fine?
 		$mail = strtolower($storedEmail);
 
-		if(strpos($goal, $first))
+		if(strpos($goal, $first) !== $false)
 		{
 			return true;
 		}
-		elseif(strpos($goal, $last))
+		elseif(strpos($goal, $last) !== $false)
 		{
 			return true;
 		}
-		elseif(strpos($goal, $storedPhone))
+		elseif(strpos($goal, $phone) !== $false)
 		{
 			return true;
 		}
-		elseif(strpos($goal, $mail))
+		elseif(strpos($goal, $mail) !== $false)
 		{
 			return true;
 		}

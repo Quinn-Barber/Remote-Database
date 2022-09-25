@@ -1,4 +1,3 @@
-@ -1,127 +1,127 @@
 <?php
 
 	$inData = getRequestInfo();

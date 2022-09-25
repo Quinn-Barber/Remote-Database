@@ -207,7 +207,7 @@ function doSearch()
 				console.log("There are " + jsonObject.results.length + " results, meaning there should be " + fillerCount + " filled or empty spaces.");
 				for(let i = 0; i < fillerCount; i++)
 				{
-					console.log("i = " + i + ", fillerCount = " + fillerCount + "resultCount = "+ resultCount);
+					console.log("i = " + i + ", fillerCount = " + fillerCount + "  resultCount = "+ resultCount);
 					var elId = i % 6;
 					var resultsArr = jsonObject.results[i].split(',');
 					let fName = resultsArr[0];
@@ -220,7 +220,7 @@ function doSearch()
 					let eStr = "eMail";
 					let eButStr = "edit";
 					let dButStr = "delete";
-					if(i<=resultCount)
+					if(i<resultCount)
 					{
 						document.getElementById(new String(fStr + elId)).innerHTML = "First Name";
 						document.getElementById(new String(lStr + elId)).innerHTML = "Last Name";

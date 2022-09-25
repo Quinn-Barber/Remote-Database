@@ -6,6 +6,7 @@
 
 	$searchResults = "";
 	$searchCount = 0;
+	$matchCount = 0;
 	$debugStr = "XXXXXX";
 	$false = false;
 
@@ -46,6 +47,7 @@
 			}
 
 			$searchCount++;
+			$matchCount++;
 				$searchResults .= '"' . $row["firstname"] .','. $row["lastname"] .','. $row["phone_number"] . ','. $row["email"] . '"';	//CHANGED: to a more complete version from landingpage.html
 
 			// if(compareStrings($searchTerm, $row["firstname"], $row["lastname"], $row["phone_number"], $row["email"])) //FIXME syntax?

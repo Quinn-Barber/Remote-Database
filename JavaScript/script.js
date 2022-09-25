@@ -199,7 +199,8 @@ function doSearch()
 				console.log("ABOUT TO ITERATE THROUGH RESULTS:");
 				console.log(JSON.stringify(jsonObject.results));
  				document.getElementById("pageNum").innerHTML = "Page 1/" + (Math.floor((jsonObject.results.length)/6)+1);
-				
+				 console.log("result length is calculated as: " + jsonObject.results.length);
+
 				let matchCount = 0;	//counts only valid matches
 				for(let i = 0; i < jsonObject.results.length; i++)
 				{

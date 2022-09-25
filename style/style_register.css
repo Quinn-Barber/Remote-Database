@@ -458,7 +458,7 @@ button:hover {
   width: 80%;
   margin-left: -130px;
   margin-top: -60px;
-  font-family: Roboto, Arial;
+  font-family: 'Work Sans', sans-serif;
 }
 
 .loginName {
@@ -476,7 +476,7 @@ button:hover {
   width: 80%;
   margin-left: -130px;
   margin-top: -60px;
-  font-family: Roboto, Arial;
+  font-family: 'Work Sans', sans-serif;
 }
 
 .text1 {
@@ -532,4 +532,8 @@ input::-webkit-outer-spin-button {
   margin-top: 11px;
   cursor: pointer;
   /*z-index: 100;*/
+}
+
+.inner-title{
+  font-family: 'Work Sans', sans-serif;
 }

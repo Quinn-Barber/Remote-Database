@@ -386,7 +386,7 @@ button:hover {
   font-size: 40px;
   width: 100%;
   text-align: center;
-  font-family: Roboto, Arial;
+  font-family: 'Work Sans', sans-serif;
   color: #fffbfb;
   display: block;
 }
@@ -406,7 +406,7 @@ button:hover {
   font-size: 30px;
   font-weight: bold;
   width: 360px;
-  height: 300px;
+  height: 260px;
   border: 1px solid #192646;
   display: block;
   justify-content: center;
@@ -478,7 +478,7 @@ button:hover {
   width: 80%;
   margin-left: -130px;
   margin-top: -60px;
-  font-family: Roboto, Arial;
+  font-family: 'Work Sans', sans-serif;
 }
 
 .loginPassword {
@@ -496,7 +496,7 @@ button:hover {
   width: 80%;
   margin-left: -130px;
   margin-top: -60px;
-  font-family: Roboto, Arial;
+  font-family: 'Work Sans', sans-serif;
 }
 
 .logoutButton {
@@ -529,34 +529,6 @@ hr {
   background-color: #4f5556;
 }
 
-.google {
-  font-size: 15px;
-  font-weight: bold;
-  height: 50px;
-  border: 1px solid #a6acba;
-  background-color: #fff;
-  border-radius: 4px;
-  color: inherit;
-  font-family: PT Sans, system-fonts-primary, sans-serif;
-  text-align: center;
-  width: 100%;
-  cursor: pointer;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-}
-
-.google_pic {
-  width: 20px;
-  margin-right: 10px;
-  margin-top: 8px;
-}
-
-.google:hover {
-  background-color: whitesmoke;
-  border-color: #000000;
-  border-radius: 10px;
-}
-
 .eye-icon{
   position: absolute;
   font-size: 18px;
@@ -564,4 +536,8 @@ hr {
   margin-left: 10px;
   cursor: pointer;
   /*z-index: 100;*/
+}
+
+.inner-title{
+  font-family: 'Work Sans', sans-serif;
 }

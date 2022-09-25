@@ -47,6 +47,9 @@ button:hover {
   height: 24px;
 }
 .contact_info .table_contact{
+  color:  white;
+  font-family: 'Work Sans', sans-serif;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
   width: 100%;
   margin-bottom: 10px;
 }

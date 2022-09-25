@@ -205,7 +205,7 @@ function doSearch()
 				let resultCount = jsonObject.results.length-1;
 				let fillerCount = Math.ceil((jsonObject.results.length)/6)*6;
 				console.log("There are " + jsonObject.results.length + " results, meaning there should be " + fillerCount + " filled or empty spaces.");
-				for(let i = 0; i < fillerCount-1; i++)
+				for(let i = 0; i < fillerCount; i++)
 				{
 					var elId = i % 6;
 					var resultsArr = jsonObject.results[i].split(',');

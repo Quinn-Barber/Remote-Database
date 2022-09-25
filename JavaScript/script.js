@@ -207,6 +207,7 @@ function doSearch()
 				console.log("There are " + jsonObject.results.length + " results, meaning there should be " + fillerCount + " filled or empty spaces.");
 				for(let i = 0; i < fillerCount; i++)
 				{
+					console.log("i = " + i + ", fillerCount = " + fillerCount + "resultCount = "+ resultCount);
 					var elId = i % 6;
 					var resultsArr = jsonObject.results[i].split(',');
 					let fName = resultsArr[0];

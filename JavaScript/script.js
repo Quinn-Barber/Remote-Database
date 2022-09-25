@@ -201,11 +201,11 @@ function doSearch()
  				document.getElementById("pageNum").innerHTML = "Page 1/" + (Math.floor((jsonObject.results.length)/6)+1);
 				
 				let matchCount = 0	//counts only valid matches
-
-				let resultCount = jsonObject.results.length;
+				let blank = "";
+				let resultCount = jsonObject.results.length-1;
 				let fillerCount = Math.ceil((jsonObject.results.length)/6)*6;
 				console.log("There are " + jsonObject.results.length + " results, meaning there should be " + fillerCount + " filled or empty spaces.");
-				for(let i = 0; i < resultCount; i++)
+				for(let i = 0; i < fillerCount-1; i++)
 				{
 					var elId = i % 6;
 					var resultsArr = jsonObject.results[i].split(',');
@@ -219,16 +219,32 @@ function doSearch()
 					let eStr = "eMail";
 					let eButStr = "edit";
 					let dButStr = "delete";
-					document.getElementById(new String(fStr + elId)).innerHTML = "First Name";
-					document.getElementById(new String(lStr + elId)).innerHTML = "Last Name";
-					document.getElementById(new String(pStr + elId)).innerHTML = "Phone Number";
-					document.getElementById(new String(eStr + elId)).innerHTML = "E-mail";
-					document.getElementById(new String(fStr + "Val" + elId)).innerHTML = fName;
-					document.getElementById(new String(lStr + "Val" + elId)).innerHTML = lName;
-					document.getElementById(new String(pStr + "Val" + elId)).innerHTML = phoneNum;
-					document.getElementById(new String(eStr + "Val" + elId)).innerHTML = eMail;
-					document.getElementById(new String(eButStr + elId)).removeAttribute("hidden");
-					document.getElementById(new String(dButStr + elId)).removeAttribute("hidden");
+					if(i<resultCount)
+					{
+						document.getElementById(new String(fStr + elId)).innerHTML = "First Name";
+						document.getElementById(new String(lStr + elId)).innerHTML = "Last Name";
+						document.getElementById(new String(pStr + elId)).innerHTML = "Phone Number";
+						document.getElementById(new String(eStr + elId)).innerHTML = "E-mail";
+						document.getElementById(new String(fStr + "Val" + elId)).innerHTML = fName;
+						document.getElementById(new String(lStr + "Val" + elId)).innerHTML = lName;
+						document.getElementById(new String(pStr + "Val" + elId)).innerHTML = phoneNum;
+						document.getElementById(new String(eStr + "Val" + elId)).innerHTML = eMail;
+						document.getElementById(new String(eButStr + elId)).removeAttribute("hidden");
+						document.getElementById(new String(dButStr + elId)).removeAttribute("hidden");
+					}
+					else
+					{
+						document.getElementById(new String(fStr + elId)).innerHTML = blank;
+						document.getElementById(new String(lStr + elId)).innerHTML = blank;
+						document.getElementById(new String(pStr + elId)).innerHTML = blank;
+						document.getElementById(new String(eStr + elId)).innerHTML = blank;
+						document.getElementById(new String(fStr + "Val" + elId)).innerHTML = blank;
+						document.getElementById(new String(lStr + "Val" + elId)).innerHTML = blank;
+						document.getElementById(new String(pStr + "Val" + elId)).innerHTML = blank;
+						document.getElementById(new String(eStr + "Val" + elId)).innerHTML = blank;
+						document.getElementById(new String(eButStr + elId)).hasAttribute("hidden");
+						document.getElementById(new String(dButStr + elId)).hasAttribute("hidden");
+					}
 					if(elId == 5) break;
 				}
 
